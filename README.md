@@ -10,21 +10,23 @@ Esports
 
 ### Package
 - install package
+
     ```sh
     cd Esports
     npm install
     ```
 
 ### Run and Release
-two choice:
-- use server
+- using development server
     + open `AppDelegate.m`
     + set `jsCodeLocation` and change `localhost` to your server ip
-- offline bundle  
-this will pack all js code with in app itself
+
+- using offline bundle  
+this will pack all javascript code within the app itself
     + set `jsCodeLocation` to your offline js bundle  
     uncomment `jsCodeLoaction` line, follow `OPTION 2`
     + react native bundle  
+
     ```sh
     cd Esports
     react-native bundle [args]

@@ -28,10 +28,7 @@ var EsportsView = React.createClass({
                     selected={this.state.selectedTab === "Scores"}
                     title="Scores"
                     name="Scores"
-                    icon={{
-                        uri: 'scores.png',
-                        isStatic: true
-                    }}
+                    icon={require('./ImageAssets/tabbar.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'Scores'
@@ -55,10 +52,7 @@ var EsportsView = React.createClass({
                     selected={this.state.selectedTab === "Standings"}
                     title="Standings"
                     name="Standings"
-                    icon={{
-                        uri: 'standings.png',
-                        isStatic: true
-                    }}
+                    icon={require('./ImageAssets/tabbar2.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'Standings'
@@ -80,10 +74,7 @@ var EsportsView = React.createClass({
                     selected={this.state.selectedTab === "News"}
                     title="News"
                     name="News"
-                    icon={{
-                        uri: 'icon.png',
-                        isStatic: true
-                    }}
+                    icon={require('./ImageAssets/tabbar3.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'News'
@@ -105,10 +96,7 @@ var EsportsView = React.createClass({
                     selected={this.state.selectedTab === "Leaders"}
                     title="Leaders"
                     name="Leaders"
-                    icon={{
-                        uri: 'leaders.png',
-                        isStatic: true
-                    }}
+                    icon={require('./ImageAssets/tabbar2.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'Leaders'

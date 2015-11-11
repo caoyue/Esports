@@ -113,7 +113,7 @@ var styles = StyleSheet.create({
     white: {
         color: 'white',
         fontSize: 20,
-        fontWeight: '100'
+        fontWeight: '200'
     }
 });
 
