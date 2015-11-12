@@ -5,6 +5,7 @@ var React = require('react-native');
 var {
     StyleSheet,
     Text,
+    Image,
     View,
     ListView
 } = React;
@@ -87,6 +88,9 @@ var StandingsView = React.createClass({
         return (
             <View style={[styles.box, styles.border]}>
                 <Text style={styles.number}>{player.number}</Text>
+                <Image
+                    source={require('../../ImageAssets/team1.jpg')}
+                    style={styles.icon} />
                 <View style={styles.player}>
                     <Text>
                         {player.player}
@@ -151,6 +155,11 @@ var styles = StyleSheet.create({
         paddingLeft: 20,
         textAlign: 'left'
     },
+    icon: {
+        height: 25,
+        width: 25,
+        marginRight: 10
+    }
 });
 
 module.exports = StandingsView;

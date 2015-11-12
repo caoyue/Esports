@@ -27,7 +27,9 @@ this will pack all javascript code within the app itself
     uncomment `jsCodeLoaction` line, follow `OPTION 2`
     + react native bundle  
 
-    ```sh
-    cd Esports
-    react-native bundle [args]
-    ```
+        ```sh
+        cd Esports
+        react-native bundle [args]
+        # example
+        react-native bundle --dev false --platform ios --bundle-output "/tmp/main.jsbundle" --entry-file index.ios.js
+        ```
