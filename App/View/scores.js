@@ -12,6 +12,7 @@ var {
 
 var LoadingView = require('./loading');
 var GroupsView = require('./groups');
+var TabSlideView = require('./slider');
 
 var GROUPS_DATA = [
     "Group A", "Group B", "Group C", "Group D", "Group E"
@@ -62,10 +63,11 @@ var ScoresView = React.createClass({
         return {
             loaded: false,
             groups: GROUPS_DATA,
-            teams: MOCK_DATA
+            teams: MOCK_DATA,
+            group: "A"
         }
     },
-    componentDidMount: function(){
+    componentDidMount: function() {
         setTimeout(this.fetchData, 500);
     },
     fetchData: function(){
@@ -77,14 +79,7 @@ var ScoresView = React.createClass({
     render: function() {
         return (
             <View style={styles.container}>
-                <ScrollView
-                    style={styles.scroll}
-                    automaticallyAdjustContentInsets={false}
-                    horizontal={true}
-                    centerContent={true}
-                    showsHorizontalScrollIndicator={false}>
-                    {this.state.groups.map(this.createGroup)}
-                </ScrollView>
+                <TabSlideView groups={this.state.groups}></TabSlideView>
                 <GroupsView groups={this.state.teams} />
             </View>
         );
@@ -102,7 +97,7 @@ var styles = StyleSheet.create({
     container: {
         //marginTop: 64,
     },
-    scroll:{
+    scroll: {
         backgroundColor: '#333333',
     },
     group: {
