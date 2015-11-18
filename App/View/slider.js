@@ -2,10 +2,8 @@
 
 var React = require('react-native');
 var {
-    StyleSheet,
     Text,
     View,
-    TouchableHighlight,
     Animated,
     PanResponder,
     Dimensions
@@ -13,15 +11,16 @@ var {
 
 var deviceWidth = Dimensions.get('window').width;
 
-var TabSlideView = React.createClass({
+var TabSliderView = React.createClass({
     getInitialState: function() {
         return {
             pan: new Animated.ValueXY(),
-            index: 3
+            index: 1
         };
     },
     componentWillMount: function() {
         this._animatedValueX = 0;
+        var tW = deviceWidth * this.props.tabWidth;
         this.state.pan.x.addListener(
             (value) => this._animatedValueX = value.value
         );
@@ -39,20 +38,23 @@ var TabSlideView = React.createClass({
             ]),
             onPanResponderRelease: (e, gestureState) => {
                 var distance = 0;
-                var relativeGestureDistance = gestureState.dx / deviceWidth;
+                var relative = gestureState.dx / deviceWidth;
                 var vx = gestureState.vx;
-                if (relativeGestureDistance < -0.5
-                    || (relativeGestureDistance < 0 && vx <= -0.5)) {
-                        if (this.state.index >= 1 && this.state.index < 5) {
-                            this.state.index += 1;
-                            distance = -200;
-                        }
-                } else if (relativeGestureDistance > 0.5
-                    || (relativeGestureDistance > 0 && vx >= 0.5)) {
+                if (relative < -0.5 || (relative < 0 && vx <= -0.5)) {
+                    if (this.state.index >= 1 && this.state.index < 5) {
+                        this.state.index += 1;
+                        distance = -tW;
+                    }
+                } else if (relative > 0.5 || (relative > 0 && vx >= 0.5)) {
                     if (this.state.index > 1 && this.state.index <= 5) {
                         this.state.index -= 1;
-                        distance = 200;
+                        distance = tW;
                     }
+                }
+                if (distance != 0) {
+                    this.props.onTabChange(
+                        this.props.tabs[this.state.index - 1]
+                    );
                 }
                 Animated.spring(this.state.pan, {
                     toValue: distance
@@ -63,10 +65,18 @@ var TabSlideView = React.createClass({
     componentWillUnmount: function() {
         this.state.pan.x.removeAllListener();
     },
-    getStyle: function() {
+    getSliderStyle: function() {
+        var tP = deviceWidth * (1 - this.props.tabWidth) * 0.5;
         return [
-            styles.slider,
+            this.props.sliderStyle,
             {
+                width: deviceWidth*this.props.tabWidth * this.props.tabs.length + tP * 2,
+                paddingLeft: tP,
+                paddingRight: tP,
+                flex: 1,
+                justifyContent: 'flex-start',
+                flexDirection: 'row',
+            }, {
                 transform: [
                     {
                         translateX: this.state.pan.x
@@ -75,51 +85,27 @@ var TabSlideView = React.createClass({
             },
         ];
     },
-    getTextColor: function(flag) {
-        return {
-            color: flag ? 'white' : 'gray'
-        };
-    },
     render: function() {
         return (
-            <View style={styles.container}>
+            <View style={[this.props.containerStyle]}>
                 <Animated.View
-                    style={this.getStyle()}
+                    style={this.getSliderStyle()}
                     {...this._panResponder.panHandlers}>
-                    {this.props.groups.map(this.createGroup)}
+                    {this.props.tabs.map(this.createTab)}
                 </Animated.View>
             </View>
         )
     },
-    createGroup: function(item, i) {
+    createTab: function(item, i) {
         return (
-            <Text style={[styles.text,this.getTextColor(i + 1 == this.state.index)]}>
-            {item}
+            <Text style={[
+                    this.props.textStyle,
+                    {width: deviceWidth * this.props.tabWidth}
+                ]}>
+                {item}
             </Text>
         );
     },
 });
 
-var styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "#333"
-    },
-    slider: {
-        backgroundColor: '#333',
-        flex: 1,
-        flexDirection: 'row',
-        paddingLeft: 15,
-    },
-    text: {
-        color: '#fff',
-        fontSize: 24,
-        fontWeight: '200',
-        width: 200,
-        textAlign: 'center'
-    }
-});
-
-module.exports = TabSlideView;
+module.exports = TabSliderView;

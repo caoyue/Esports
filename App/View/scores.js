@@ -12,7 +12,7 @@ var {
 
 var LoadingView = require('./loading');
 var GroupsView = require('./groups');
-var TabSlideView = require('./slider');
+var TabSliderView = require('./slider');
 
 var GROUPS_DATA = [
     "Group A", "Group B", "Group C", "Group D", "Group E"
@@ -28,16 +28,16 @@ var MOCK_DATA = [
             scoreB: "0",
             remarkA: "30:34",
             remarkB: "Game 1"
-        },
+        }, {
+            teamA: "Cloud9",
+            teamB: "ahq e-Sports Club",
+            scoreA: "",
+            scoreB: "",
+            remarkA: "~11:30",
+            remarkB: ""
+        }
+    ]},
     {
-        teamA: "Cloud9",
-        teamB: "ahq e-Sports Club",
-        scoreA: "",
-        scoreB: "",
-        remarkA: "~11:30",
-        remarkB: ""
-    }]
-    }, {
         time: "星期四，10 月 1 日",
         scores: [{
             teamA: "Fnatic",
@@ -47,14 +47,14 @@ var MOCK_DATA = [
             remarkA: "30:34",
             remarkB: "Game 1"
         },
-    {
-        teamA: "Cloud9",
-        teamB: "ahq e-Sports Club",
-        scoreA: "",
-        scoreB: "",
-        remarkA: "~11:30",
-        remarkB: ""
-    }]
+        {
+            teamA: "Cloud9",
+            teamB: "ahq e-Sports Club",
+            scoreA: "",
+            scoreB: "",
+            remarkA: "~11:30",
+            remarkB: ""
+        }]
     }
 ];
 
@@ -79,17 +79,20 @@ var ScoresView = React.createClass({
     render: function() {
         return (
             <View style={styles.container}>
-                <TabSlideView groups={this.state.groups}></TabSlideView>
+                <TabSliderView
+                    tabWidth={0.5}
+                    tabs={this.state.groups}
+                    onTabChange={(t) => this.onTabChange(t)}
+                    containerStyle={styles.tsContainer}
+                    sliderStyle={styles.tsSlider}
+                    textStyle={styles.tsText}>
+                </TabSliderView>
                 <GroupsView groups={this.state.teams} />
             </View>
         );
     },
-    createGroup: function(item, i) {
-        return (
-            <View style={styles.group}>
-                <Text style={styles.white}>{item}</Text>
-            </View>
-        );
+    onTabChange: function(tab) {
+        console.log(tab);
     }
 });
 
@@ -109,7 +112,21 @@ var styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         fontWeight: '200'
-    }
+    },
+    tsContainer: {
+        backgroundColor: "#333",
+    },
+    tsSlider: {
+        backgroundColor: '#333',
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    tsText: {
+        color: '#fff',
+        fontSize: 24,
+        fontWeight: '200',
+        textAlign: 'center'
+    },
 });
 
 module.exports = ScoresView;
