@@ -1,0 +1,25 @@
+language: objective-c
+osx_image: xcode7.1
+xcode_project: ios/Esports.xcodeproj
+xcode_scheme: Esports
+env:
+  matrix:
+    - SPEC=spec1
+
+before_install:
+    - ./scripts/decrypt_key.sh
+    - ./scripts/add_key.sh
+    - brew update
+
+install:
+    - brew reinstall node flow watchman xctool
+    - npm install -g react-native-cli
+
+branches:
+  only:
+    - master
+
+script:
+    - npm install
+    - react-native bundle --dev false --platform ios --bundle-output "/tmp/main.jsbundle" --entry-file index.ios.js
+    - xctool -project ios/Esports.xcodeproj -scheme Esports build
