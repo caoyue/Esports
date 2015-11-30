@@ -10,9 +10,11 @@ xctool -project ios/Esports.xcodeproj -scheme Esports build -sdk iphoneos -confi
 
 PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/ESportsdev.mobileprovision"
 OUTPUTDIR="$PWD/build/Release-iphoneos"
+NAME=Esports_${TRAVIS_COMMIT:0:6}.ipa
 
 xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/Esports.app" \
-    -o "$OUTPUTDIR/Esports.ipa"
+    -o "$OUTPUTDIR/$NAME"
 
-cd build
-ls -al
+cd $OUTPUTDIR
+curl --ftp-create-dirs -T "$NAME" -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_SERVER/esports/$NAME
+echo "done!"
