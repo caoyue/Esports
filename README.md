@@ -1,5 +1,7 @@
-Esports
+Esports 
 ========
+
+[![Build Status](https://api.travis-ci.org/caoyue/Esports.svg?branch=master)](https://travis-ci.org/caoyue/Esports)
 
 ### Require
 - xcode 6.3+
