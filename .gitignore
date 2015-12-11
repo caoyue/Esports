@@ -38,3 +38,5 @@ dist.cer
 dist.p12
 *.mobileprovision
 env.sh
+
+*.iml
