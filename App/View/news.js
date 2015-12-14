@@ -15,28 +15,8 @@ var {
 
 var NewsDetailView = require('./newsDetail');
 var LoadingView = require('./loading');
+var Api = require('../Api/api');
 
-var MOCK_DATA = [
-    {
-        id: 1,
-        title: "Everything you need to konw about the 2015 World Championship",
-        image: "http://www.publicdomainpictures.net/pictures/70000/nahled/corbet.jpg",
-        author: 'LoL',
-        time: '1 week ago'
-    }, {
-        id: 2,
-        title: "theScore eSports's 2015 World Championship Power Rankings",
-        image: "http://www.publicdomainpictures.net/pictures/10000/nahled/87-1265714548Otmq.jpg",
-        author: 'LoL',
-        time: '5 days ago'
-    }, {
-        id: 3,
-        title: "Everything you need to konw about the 2015 World Championship",
-        image: "http://www.publicdomainpictures.net/pictures/70000/nahled/corbet.jpg",
-        author: 'LoL',
-        time: '1 week ago'
-    },
-];
 
 var NewsView = React.createClass({
     getInitialState: function() {
@@ -49,13 +29,22 @@ var NewsView = React.createClass({
         }
     },
     componentDidMount: function() {
-        setTimeout(this.fetchData, 500);
+        this.fetchData();
     },
     fetchData: function() {
-        this.setState({
-            loaded: true,
-            news: this.state.news.cloneWithRows(MOCK_DATA)
-        })
+        fetch(Api.News()).then((response) => {
+            return response.json();
+        }).
+        catch((error) => {
+            React.AlertIOS.alert("Loading News Error", "error:" + error.message);
+        }).
+        then((data) => {
+            console.log(data);
+            this.setState({
+                loaded: true,
+                news: this.state.news.cloneWithRows(data)
+            })
+        });
     },
     onPress: function(data) {
         this.props.navigator.push({
