@@ -12,6 +12,11 @@ var {
     StatusBarIOS
 } = React;
 
+var I18n = require("react-native-i18n");
+I18n.fallbacks = true;
+I18n.translations = require("./App/I18n/translations.json");
+I18n.locale = "zh-CN";
+
 var EsportsView = React.createClass({
     getInitialState: function() {
         return {
@@ -26,12 +31,12 @@ var EsportsView = React.createClass({
                 <TabBarIOS.Item
                     accessibilityLabel={"Scores"}
                     selected={this.state.selectedTab === "Scores"}
-                    title="Scores"
+                    title={I18n.t("scores")}
                     name="Scores"
                     icon={require('./ImageAssets/tabbar.png')}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'Scores'
+                            selectedTab: "Scores"
                         });
                     }}>
                     <NavigatorIOS
