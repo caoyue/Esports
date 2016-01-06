@@ -36,14 +36,13 @@ var NewsView = React.createClass({
             return response.json();
         }).
         catch((error) => {
-            React.AlertIOS.alert("Loading News Error",
-                "error:" + error.message);
+            React.AlertIOS.alert("Loading News Error", "error:" + error.message);
         }).
         then((data) => {
+            console.log(data);
             this.setState({
                 loaded: true,
-                news: this.state.news.cloneWithRows(
-                    data)
+                news: this.state.news.cloneWithRows(data)
             })
         });
     },
@@ -58,54 +57,35 @@ var NewsView = React.createClass({
     },
     render: function() {
         if (!this.state.loaded) {
-            return ( < LoadingView / > );
+            return (
+                <LoadingView />
+            );
         }
-        return ( < ListView style = {
-                styles.list
-            }
-            dataSource = {
-                this.state.news
-            }
-            renderRow = {
-                this.renderNews
-            }
-            automaticallyAdjustContentInsets = {
-                false
-            }
-            />
+        return (
+            <ListView
+                style={styles.list}
+                dataSource={this.state.news}
+                renderRow={this.renderNews}
+                automaticallyAdjustContentInsets={false}
+                />
         );
     },
     renderNews: function(item) {
-        return ( < TouchableHighlight onPress = {
-                () => this.onPress(item)
-            } >
-            < View style = {
-                [styles.box, styles.border]
-            } >
-            < Image style = {
-                styles.image
-            }
-            source = {
-                {
-                    uri: item.image
-                }
-            } >
-            < View style = {
-                styles.backdrop
-            } >
-            < Text style = {
-                [styles.title]
-            } > {
-                item.title
-            } < /Text> < Text style = {
-                [styles.tag]
-            } > {
-                item.author
-            }
-            Featured {
-                item.time
-            } < /Text> < /View> < /Image> < /View> <
-            /TouchableHighlight>
+        return (
+            <TouchableHighlight
+                onPress={() => this.onPress(item)}>
+                <View
+                    style={[styles.box, styles.border]}>
+                    <Image
+                        style={styles.image}
+                        source={{uri: item.image}}>
+                        <View style={styles.backdrop}>
+                            <Text style={[styles.title]}>{item.title}</Text>
+                            <Text style={[styles.tag]}>{item.author} Featured {item.time}</Text>
+                        </View>
+                    </Image>
+                </View>
+            </TouchableHighlight>
         );
     }
 });
