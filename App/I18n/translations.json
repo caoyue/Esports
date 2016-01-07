@@ -1,11 +1,28 @@
 {
     "en": {
-        "scores": "Scores"
+        "news": "News",
+        "match": "Matches",
+        "ranking": "Ranking",
+        "hero": "Heroes"
     },
     "en-US": {
-        "scores": "Scores"
+        "news": "News",
+        "match": "Matches",
+        "ranking": "Ranking",
+        "hero": "Heroes"
     },
     "zh-CN": {
-        "scores": "比分"
+        "news": "新闻",
+        "match": "比赛",
+        "ranking": "实力评级",
+        "hero": "英雄"
+
+    },
+    "zh-HK": {
+        "news" : "新聞",
+        "match": "比賽",
+        "ranking": "實力評級",
+        "hero": "英雄"
     }
+
 }

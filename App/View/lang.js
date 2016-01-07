@@ -66,7 +66,7 @@ var LangView = React.createClass({
                         </LangButton>
                         <LangButton
                             code='zh-HK'
-                            name='繁体中文'
+                            name='繁體中文'
                             selected={this.state.selected}
                             onPress={() => {this.onPress('zh-HK')}}>
                         </LangButton>
@@ -111,7 +111,6 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: 36,
-        color: 'blue'
     },
     text: {
         color: 'white',

@@ -13,15 +13,14 @@ var {
     StatusBarIOS
 } = React;
 
-var I18n = require('react-native-i18n');
-I18n.fallbacks = true;
-I18n.translations = require('../I18n/translations.json');
-I18n.locale = 'zh-CN';
+
+var Trans = require('../I18n/translate');
+var NewsRoute = require('../View/News/route');
 
 var HomeView = React.createClass({
     getInitialState: function() {
         return {
-            selectedTab: 'News'
+            selectedTab: 'News',
         }
     },
     render: function() {
@@ -30,9 +29,22 @@ var HomeView = React.createClass({
             <TabBarIOS
                 selectedTab={this.state.selectedTab}>
                 <TabBarIOS.Item
+                    accessibilityLabel={'News'}
+                    selected={this.state.selectedTab === 'News'}
+                    title={Trans.t('news')}
+                    name='News'
+                    icon={require('../../ImageAssets/tabbar3.png')}
+                    onPress={() => {
+                        this.setState({
+                            selectedTab: 'News'
+                        });
+                    }}>
+                    <NewsRoute />
+                </TabBarIOS.Item>
+                <TabBarIOS.Item
                     accessibilityLabel={'Scores'}
                     selected={this.state.selectedTab === 'Scores'}
-                    title={I18n.t('scores')}
+                    title={Trans.t('match')}
                     name='Scores'
                     icon={require('../../ImageAssets/tabbar.png')}
                     onPress={() => {
@@ -74,32 +86,6 @@ var HomeView = React.createClass({
                             title: 'Standings',
                             component: require('./standings')
                         }} />
-                </TabBarIOS.Item>
-                <TabBarIOS.Item
-                    accessibilityLabel={'News'}
-                    selected={this.state.selectedTab === 'News'}
-                    title='News'
-                    name='News'
-                    icon={require('../../ImageAssets/tabbar3.png')}
-                    onPress={() => {
-                        this.setState({
-                            selectedTab: 'News'
-                        });
-                    }}>
-                    <Navigator
-                        initialRoute={{name: 'NewsView', news: null}}
-                        configureScene={(route) => Navigator.SceneConfigs.HorizontalSwipeJump}
-                        renderScene={(route, navigator) => {
-                            switch(route.name) {
-                                case 'NewsDetailView':
-                                    var NewsDetailView = require('./newsDetail');
-                                    return <NewsDetailView route={route} navigator={navigator}></NewsDetailView>;
-                                default:
-                                    var NewsView = require('./news');
-                                    return <NewsView route={route} navigator={navigator}></NewsView>;
-                            }}
-                        }>
-                    </Navigator>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     accessibilityLabel={'Leaders'}

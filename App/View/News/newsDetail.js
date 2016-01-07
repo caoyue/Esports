@@ -11,8 +11,8 @@ var {
     TouchableHighlight,
 } = React;
 
-var LoadingView = require('./loading');
-var Navbar = require('./navbar');
+var LoadingView = require('../../View/loading');
+var Navbar = require('../../View/navbar');
 
 var NewsDetailView = React.createClass({
     getInitialState: function() {
@@ -25,7 +25,6 @@ var NewsDetailView = React.createClass({
         setTimeout(this.fetchData, 500);
     },
     fetchData: function() {
-        console.log("detail:" + this.props.route);
         this.setState({
             loaded: true
         })

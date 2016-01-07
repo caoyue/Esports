@@ -2,7 +2,6 @@
 
 var React = require('react-native');
 var {
-    AppRegistry,
     StyleSheet,
     Text,
     Image,
@@ -14,9 +13,9 @@ var {
 } = React;
 
 var NewsDetailView = require('./newsDetail');
-var LoadingView = require('./loading');
-var Navbar = require('./navbar');
-var Api = require('../Api/api');
+var LoadingView = require('../../View/loading');
+var Navbar = require('../../View/navbar');
+var Api = require('../../Api/api');
 
 var NewsView = React.createClass({
     getInitialState: function() {
@@ -48,11 +47,14 @@ var NewsView = React.createClass({
             });
         },
         onPress: function(data) {
-            console.log(data);
             this.props.navigator.push({
                 name: 'NewsDetailView',
-                component: NewsDetailView,
                 news: data
+            });
+        },
+        toSetting: function(){
+            this.props.navigator.push({
+                name: 'SettingView'
             });
         },
         render: function() {
@@ -62,11 +64,12 @@ var NewsView = React.createClass({
                 );
             }
             return (
-                <View style={styles.container}>
+                <View>
                     <Navbar
-                        left='Menu'
-                        title='News'
-                        right='+'>
+                        left = 'Menu'
+                        title = 'News'
+                        right = '+'
+                        onLeftPress={() => {this.toSetting()}}>
                     </Navbar>
                     <ListView
                         style={styles.list}
@@ -75,30 +78,31 @@ var NewsView = React.createClass({
                         automaticallyAdjustContentInsets={false}
                     />
                 </View>
-        );
-    },
-    renderNews: function(item) {
-        return (
-            <TouchableHighlight onPress={() => this.onPress(item)}>
-                <View style={[styles.box, styles.border]}>
-                    <Image style={styles.image}
-                    source={{uri: item.image}}>
-                        <View style={styles.backdrop}>
-                            <Text style={[styles.title]}>{item.title}</Text>
-                            <Text style={[styles.tag]}>
-                                {item.author} Featured {item.time}
-                            </Text>
-                        </View >
-                    </Image>
-                </View >
-            </TouchableHighlight>
-        );
-    }
-});
+            );
+        },
+        renderNews: function(item) {
+            return (
+                <TouchableHighlight onPress={() => this.onPress(item)}>
+                    <View style={[styles.box, styles.border]}>
+                        <Image
+                            style={styles.image}
+                            source={{uri: item.image}}>
+                            <View style={styles.backdrop}>
+                                <Text style={[styles.title]}>
+                                    {item.title}
+                                </Text>
+                                <Text style={[styles.tag]}>
+                                    {item.author} Featured {item.time}
+                                </Text>
+                            </View>
+                        </Image>
+                    </View>
+                </TouchableHighlight>
+            );
+        }
+    });
 
 var styles = StyleSheet.create({
-    container: {
-    },
     list: {
         backgroundColor: 'gray',
     },

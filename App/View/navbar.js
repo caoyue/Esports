@@ -38,7 +38,6 @@ var Navbar = React.createClass({
 
 var styles = StyleSheet.create({
     header: {
-        flex: 1,
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'center',
@@ -48,7 +47,6 @@ var styles = StyleSheet.create({
     },
     menu: {
         flex: 1,
-        paddingLeft: 5,
         width: 80,
         color: 'white',
         fontSize: 18,
