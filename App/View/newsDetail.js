@@ -12,6 +12,7 @@ var {
 } = React;
 
 var LoadingView = require('./loading');
+var Navbar = require('./navbar');
 
 var NewsDetailView = React.createClass({
     getInitialState: function() {
@@ -24,9 +25,9 @@ var NewsDetailView = React.createClass({
         setTimeout(this.fetchData, 500);
     },
     fetchData: function() {
+        console.log("detail:" + this.props.route);
         this.setState({
-            loaded: true,
-            news: this.props.news
+            loaded: true
         })
     },
     render: function() {
@@ -37,13 +38,19 @@ var NewsDetailView = React.createClass({
         }
         return (
             <View style={styles.list}>
+                <Navbar
+                    left='< Back'
+                    title='News'
+                    right=''
+                    onLeftPress={() => this.props.navigator.pop()}>
+                </Navbar>
                 <Image
                     style={styles.image}
-                    source={{uri: this.state.news.image}}>
+                    source={{uri: this.props.route.news.image}}>
                 </Image>
-                <Text>{this.props.news.title}</Text>
-                <Text>{this.props.news.author}</Text>
-                <Text>{this.props.news.time}</Text>
+                <Text>{this.props.route.news.title}</Text>
+                <Text>{this.props.route.news.author}</Text>
+                <Text>{this.props.route.news.time}</Text>
             </View>
         );
     }
@@ -51,7 +58,6 @@ var NewsDetailView = React.createClass({
 
 var styles = StyleSheet.create({
     list: {
-        //marginTop: 64,
         marginBottom: 48
     },
     image: {

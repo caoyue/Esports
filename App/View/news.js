@@ -15,8 +15,8 @@ var {
 
 var NewsDetailView = require('./newsDetail');
 var LoadingView = require('./loading');
+var Navbar = require('./navbar');
 var Api = require('../Api/api');
-
 
 var NewsView = React.createClass({
     getInitialState: function() {
@@ -36,63 +36,70 @@ var NewsView = React.createClass({
             return response.json();
         }).
         catch((error) => {
-            React.AlertIOS.alert("Loading News Error", "error:" + error.message);
+            React.AlertIOS.alert('Loading News Error',
+            'error:' + error.message);
         }).
         then((data) => {
-            console.log(data);
             this.setState({
                 loaded: true,
-                news: this.state.news.cloneWithRows(data)
-            })
-        });
-    },
-    onPress: function(data) {
-        this.props.navigator.push({
-            title: data.author,
-            component: NewsDetailView,
-            passProps: {
+                news: this.state.news.cloneWithRows(
+                    data)
+                })
+            });
+        },
+        onPress: function(data) {
+            console.log(data);
+            this.props.navigator.push({
+                name: 'NewsDetailView',
+                component: NewsDetailView,
                 news: data
+            });
+        },
+        render: function() {
+            if (!this.state.loaded) {
+                return (
+                    <LoadingView />
+                );
             }
-        });
-    },
-    render: function() {
-        if (!this.state.loaded) {
             return (
-                <LoadingView />
-            );
-        }
-        return (
-            <ListView
-                style={styles.list}
-                dataSource={this.state.news}
-                renderRow={this.renderNews}
-                automaticallyAdjustContentInsets={false}
-                />
+                <View style={styles.container}>
+                    <Navbar
+                        left='Menu'
+                        title='News'
+                        right='+'>
+                    </Navbar>
+                    <ListView
+                        style={styles.list}
+                        dataSource={this.state.news}
+                        renderRow={this.renderNews}
+                        automaticallyAdjustContentInsets={false}
+                    />
+                </View>
         );
     },
     renderNews: function(item) {
         return (
-            <TouchableHighlight
-                onPress={() => this.onPress(item)}>
-                <View
-                    style={[styles.box, styles.border]}>
-                    <Image
-                        style={styles.image}
-                        source={{uri: item.image}}>
+            <TouchableHighlight onPress={() => this.onPress(item)}>
+                <View style={[styles.box, styles.border]}>
+                    <Image style={styles.image}
+                    source={{uri: item.image}}>
                         <View style={styles.backdrop}>
                             <Text style={[styles.title]}>{item.title}</Text>
-                            <Text style={[styles.tag]}>{item.author} Featured {item.time}</Text>
-                        </View>
+                            <Text style={[styles.tag]}>
+                                {item.author} Featured {item.time}
+                            </Text>
+                        </View >
                     </Image>
-                </View>
+                </View >
             </TouchableHighlight>
         );
     }
 });
 
 var styles = StyleSheet.create({
+    container: {
+    },
     list: {
-        marginBottom: 112,
         backgroundColor: 'gray',
     },
     box: {
