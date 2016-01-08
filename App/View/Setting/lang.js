@@ -102,7 +102,8 @@ var styles = StyleSheet.create({
     },
     text: {
         color: 'rgb(28,28,28)',
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'normal'
     },
     first: {
         marginTop: 15,

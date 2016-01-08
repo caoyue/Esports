@@ -10,6 +10,7 @@ var {
 } = React;
 
 var Navbar = require('../../View/navbar');
+var Trans = require('../../I18n/translate');
 
 var SettingView = React.createClass({
     render: function(){
@@ -31,7 +32,7 @@ var SettingView = React.createClass({
                         }>
                         <View style={[styles.row, styles.first]}>
                             <Text style={[styles.left, styles.text]}>
-                                Language Switch
+                                {Trans.t('language')}
                             </Text>
                             <Text style={[styles.right, styles.text]}>></Text>
                         </View>
@@ -45,7 +46,7 @@ var SettingView = React.createClass({
                         }>
                         <View style={styles.row}>
                             <Text style={[styles.left, styles.text]}>
-                                About Us
+                                {Trans.t('aboutus')}
                             </Text>
                             <Text style={[styles.right, styles.text]}>></Text>
                         </View>
@@ -59,7 +60,7 @@ var SettingView = React.createClass({
                         }>
                         <View style={styles.row}>
                             <Text style={[styles.left, styles.text]}>
-                                Feedback
+                                {Trans.t('feedback')}
                             </Text>
                             <Text style={[styles.right, styles.text]}>></Text>
                         </View>

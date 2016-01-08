@@ -43,7 +43,7 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         paddingBottom: 5,
         height: 60,
-        backgroundColor: 'rgb(52,136,250)',
+        backgroundColor: 'rgb(52,136,245)',
     },
     menu: {
         flex: 1,

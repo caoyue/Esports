@@ -29,7 +29,7 @@ var NewsRoute = React.createClass({
                                 rout={route}
                                 navigator={navigator} />;
                         default:
-                            var NewsView = require('./list');
+                            var NewsView = require('./index');
                             return <NewsView
                                 route={route}
                                 navigator={navigator} />;

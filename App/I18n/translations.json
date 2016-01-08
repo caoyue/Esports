@@ -3,26 +3,37 @@
         "news": "News",
         "match": "Matches",
         "ranking": "Ranking",
-        "hero": "Heroes"
+        "hero": "Heroes",
+        "language": "Language",
+        "aboutus": "About Us",
+        "feedback": "Feedback"
     },
     "en-US": {
         "news": "News",
         "match": "Matches",
         "ranking": "Ranking",
-        "hero": "Heroes"
+        "hero": "Heroes",
+        "language": "Language",
+        "aboutus": "About Us",
+        "feedback": "Feedback"
     },
     "zh-CN": {
         "news": "新闻",
         "match": "比赛",
         "ranking": "实力评级",
-        "hero": "英雄"
-
+        "hero": "英雄",
+        "language": "语言",
+        "aboutus": "关于我们",
+        "feedback": "意见反馈"
     },
     "zh-HK": {
         "news" : "新聞",
         "match": "比賽",
         "ranking": "實力評級",
-        "hero": "英雄"
+        "hero": "英雄",
+        "language": "語言",
+        "aboutus": "關於我們",
+        "feedback": "意見反饋"
     }
 
 }
