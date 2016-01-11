@@ -83,7 +83,7 @@ var LangSwitchView = React.createClass({
                     onPress={() => {this.reset()}}>
                     <View style={styles.row}>
                         <Text style={[styles.left, styles.text]}>
-                            Reset
+                            Reset(For Develop)
                         </Text>
                         <Text style={[styles.right, styles.text]}></Text>
                     </View>

@@ -17,12 +17,11 @@ var Trans = require('../I18n/translate');
 
 var HomeView = React.createClass({
     getInitialState: function() {
+        console.log("lang"+this.props.lang);
+        Trans.changeLocale(this.props.lang);
         return {
             selectedTab: 'News',
         }
-    },
-    componentDidMount: function(){
-        Trans.changeLocale(this.props.lang);
     },
     render: function() {
         StatusBarIOS.setStyle('light-content');

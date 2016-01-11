@@ -10,24 +10,29 @@ I18n.fallbacks = true;
 I18n.translations = require('./translations.json');
 
 var Trans = {
-    getLang: async function () {
-        try{
+    getLang: async function() {
+        try {
             var val = await AsyncStorage.getItem('LANGUAGE');
             return val !== null ? val : 'en-US'
-        } catch(error){
+        } catch (error) {
             console.log(error.message);
             return 'en-US'
         }
     },
-    getLocale: function(){
+    getLocale: function() {
         return I18n.locale;
     },
-    setLocale: function(){
+    setLocale: function() {
         this.getLang().then(
-            (val) => {I18n.locale=val;}
+            (val) => {
+                I18n.locale = val;
+            }
         ).done();
     },
-    t: function(code){
+    changeLocale: function(lang) {
+        I18n.locale = lang;
+    },
+    t: function(code) {
         return I18n.t(code);
     }
 };

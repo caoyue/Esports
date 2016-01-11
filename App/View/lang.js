@@ -55,7 +55,7 @@ var LangView = React.createClass({
                 <LoadingView />
             );
         }
-        else if (this.state.lang !== 'none') {
+        else if (this.state.lang !== 'done') {
             return (
                 <HomeView lang={this.state.lang} />
             );
