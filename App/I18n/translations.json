@@ -6,7 +6,11 @@
         "hero": "Heroes",
         "language": "Language",
         "aboutus": "About Us",
-        "feedback": "Feedback"
+        "feedback": "Feedback",
+        "hotNews": "Hot",
+        "transferNews": "Transfer",
+        "topNews": "Top",
+        "transferTo": "transfer"
     },
     "en-US": {
         "news": "News",
@@ -15,7 +19,11 @@
         "hero": "Heroes",
         "language": "Language",
         "aboutus": "About Us",
-        "feedback": "Feedback"
+        "feedback": "Feedback",
+        "hotNews": "Hot",
+        "transferNews": "Transfer",
+        "topNews": "Top",
+        "transferTo": "transfer"
     },
     "zh-CN": {
         "news": "新闻",
@@ -24,7 +32,11 @@
         "hero": "英雄",
         "language": "语言",
         "aboutus": "关于我们",
-        "feedback": "意见反馈"
+        "feedback": "意见反馈",
+        "hotNews": "热门焦点",
+        "transferNews": "转会名单",
+        "topNews": "头条热话",
+        "transferTo": "转到"
     },
     "zh-HK": {
         "news" : "新聞",
@@ -33,7 +45,10 @@
         "hero": "英雄",
         "language": "語言",
         "aboutus": "關於我們",
-        "feedback": "意見反饋"
+        "feedback": "意見反饋",
+        "hotNews": "熱門焦點",
+        "transferNews": "轉會名單",
+        "topNews": "頭條熱話",
+        "transferTo": "轉到"
     }
-
 }

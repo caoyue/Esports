@@ -13,9 +13,7 @@ var {
     StatusBarIOS
 } = React;
 
-
 var Trans = require('../I18n/translate');
-var NewsRoute = require('../View/News/route');
 
 var HomeView = React.createClass({
     getInitialState: function() {
@@ -23,8 +21,12 @@ var HomeView = React.createClass({
             selectedTab: 'News',
         }
     },
+    componentDidMount: function(){
+        Trans.changeLocale(this.props.lang);
+    },
     render: function() {
         StatusBarIOS.setStyle('light-content');
+        var NewsRoute = require('../View/News/route');
         return (
             <TabBarIOS
                 selectedTab={this.state.selectedTab}>

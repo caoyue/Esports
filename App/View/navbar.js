@@ -16,7 +16,7 @@ var Navbar = React.createClass({
             <View style={styles.header}>
                 <TouchableHighlight
                     underlayColor='transparent'
-                    style={{width: 60}}
+                    style={{width: 75}}
                     onPress={this.props.onLeftPress}>
                     <Text style={styles.menu}>{this.props.left}</Text>
                 </TouchableHighlight>
@@ -27,7 +27,7 @@ var Navbar = React.createClass({
                 </TouchableHighlight>
                 <TouchableHighlight
                     underlayColor='transparent'
-                    style={{width: 60}}
+                    style={{width: 75}}
                     onPress={this.props.onRightPress}>
                     <Text style={styles.right}>{this.props.right}</Text>
                 </TouchableHighlight>
@@ -41,8 +41,8 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'center',
-        paddingBottom: 5,
-        height: 60,
+        paddingBottom: 15,
+        height: 70,
         backgroundColor: 'rgb(52,136,245)',
     },
     menu: {

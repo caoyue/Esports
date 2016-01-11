@@ -15,26 +15,26 @@ var HomeView = require('./home');
 var LANG_KEY = 'LANGUAGE';
 
 var LangView = React.createClass({
-    getInitialState: function(){
+    getInitialState: function() {
         return {
             lang: 'none',
             selected: 'none'
         };
     },
-    componentDidMount: function(){
+    componentDidMount: function() {
         this.getLang().done();
     },
     getLang: async function() {
         try{
             var val = await AsyncStorage.getItem(LANG_KEY);
             this.setState({
-                lang: val !== null ? val : 'none'
+                lang: val !== null ? val : 'done'
             });
         } catch(error){
             console.log(error.message);
         }
     },
-    onPress: async function(lang){
+    onPress: async function(lang) {
         this.setState({
             selected: lang
         });
@@ -49,9 +49,15 @@ var LangView = React.createClass({
         }
     },
     render: function() {
-        if (this.state.lang !== 'none') {
+        if (this.state.lang === 'none') {
+            var LoadingView = require('./loading');
             return (
-                <HomeView lang={this.state.lang}></HomeView>
+                <LoadingView />
+            );
+        }
+        else if (this.state.lang !== 'none') {
+            return (
+                <HomeView lang={this.state.lang} />
             );
         } else {
             return (

@@ -54,6 +54,7 @@ var ScrollTabBar = React.createClass({
     renderTab: function(title, i){
         return (
             <TouchableHighlight
+                key={title}
                 style={[styles.tab, this.getTabStyle(i)]}
                 underlayColor='transparent'
                 onPress={() => this.onPress(i)}>

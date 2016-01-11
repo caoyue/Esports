@@ -18,27 +18,35 @@ var NewsView = React.createClass({
         });
     },
     render: function() {
+        var Trans = require('../../I18n/translate');
         var HotNews = require('./hot');
+        var Transfer = require('./transfer');
         var TabBar = require('../../View/tabbar');
-        var tabs = ['Hot', 'Focus', 'Rank'];
+        var tabs = [
+            Trans.t('hotNews'),
+            Trans.t('transferNews'),
+            Trans.t('topNews')
+        ];
+        console.log(tabs);
         return (
             <View>
                 <Navbar
-                    left = 'Menu'
-                    title = 'News'
-                    right = '+'
+                    left='Menu'
+                    title={Trans.t('news')}
+                    right='China'
                     onLeftPress={() => {this.toSetting()}}>
                 </Navbar>
                 <ScrollableTabView
                     renderTabBar={() => <TabBar tabs={tabs} />}>
                     <HotNews
-                        tabLabel='Hot'
+                        tabLabel={Trans.t('hotNews')}
                         route={this.props.route}
                         navigator={this.props.navigator} />
-                    <View tabLabel="Focus">
-                        <Text>Focus</Text>
-                    </View>
-                    <View tabLabel="Rank">
+                    <Transfer
+                        tabLabel={Trans.t('transferNews')}
+                        route={this.props.route}
+                        navigator={this.props.navigator} />
+                    <View tabLabel={Trans.t('topNews')}>
                         <Text>Rank</Text>
                     </View>
                 </ScrollableTabView>

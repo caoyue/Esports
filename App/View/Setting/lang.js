@@ -21,6 +21,7 @@ var LangSwitchView = React.createClass({
     onPress: async function(lang){
         try{
             await AsyncStorage.setItem('LANGUAGE', lang);
+            //Trans.changeLocale(lang);
             this.setState({
                 lang: lang
             });
@@ -28,6 +29,9 @@ var LangSwitchView = React.createClass({
             console.log(error.message);
             React.AlertIOS.alert('Error', 'set storage failed!')
         }
+    },
+    reset: async function(){
+        await AsyncStorage.removeItem('LANGUAGE');
     },
     render: function(){
         return (
@@ -72,6 +76,16 @@ var LangSwitchView = React.createClass({
                         <Text style={[styles.right, styles.text]}>
                             {this.state.lang === 'en-US' ? '√': ''}
                         </Text>
+                    </View>
+                </TouchableHighlight>
+                <TouchableHighlight
+                    underlayColor='transparent'
+                    onPress={() => {this.reset()}}>
+                    <View style={styles.row}>
+                        <Text style={[styles.left, styles.text]}>
+                            Reset
+                        </Text>
+                        <Text style={[styles.right, styles.text]}></Text>
                     </View>
                 </TouchableHighlight>
             </View>
