@@ -13,9 +13,11 @@ var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 var NewsView = React.createClass({
     toSetting: function(){
+        console.log(this.props.navigator.getCurrentRoutes());
         this.props.navigator.push({
             name: 'SettingView'
         });
+        console.log(this.props.navigator.getCurrentRoutes());
     },
     render: function() {
         var Trans = require('../../I18n/translate');
@@ -29,13 +31,7 @@ var NewsView = React.createClass({
             Trans.t('topNews')
         ];
         return (
-            <View
-                onBack={() => {
-                        console.log("index:"+this.props.route.index);
-                        if (this.props.route.index > 0) {
-                            this.props.navigator.pop();
-                        }
-                }}>
+            <View style={{backgroundColor: 'rgb(255,255,255)'}}>
                 <Navbar
                     left='Menu'
                     title={Trans.t('news')}
@@ -43,6 +39,7 @@ var NewsView = React.createClass({
                     onLeftPress={() => {this.toSetting()}}>
                 </Navbar>
                 <ScrollableTabView
+                    locked={true}
                     renderTabBar={() => <TabBar tabs={tabs} />}>
                     <HotNews
                         tabLabel={Trans.t('hotNews')}
@@ -53,7 +50,7 @@ var NewsView = React.createClass({
                         route={this.props.route}
                         navigator={this.props.navigator} />
                     <TopNews
-                        tabLabel={Trans.t('topNews')} 
+                        tabLabel={Trans.t('topNews')}
                         route={this.props.route}
                         navigator={this.props.navigator} />
                 </ScrollableTabView>

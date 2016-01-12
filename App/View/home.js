@@ -27,6 +27,7 @@ var HomeView = React.createClass({
         var NewsRoute = require('../View/News/route');
         return (
             <TabBarIOS
+                style={styles.tabBar}
                 selectedTab={this.state.selectedTab}>
                 <TabBarIOS.Item
                     accessibilityLabel={'News'}
@@ -115,6 +116,9 @@ var HomeView = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    tabBar: {
+        backgroundColor: 'rgb(52,136,245)',
+    },
     container: {
         flex: 1,
     }

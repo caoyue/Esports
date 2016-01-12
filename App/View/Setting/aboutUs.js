@@ -12,7 +12,7 @@ var AboutUsView = React.createClass({
         var Navbar = require('../../View/navbar');
         var Trans = require('../../I18n/translate');
         return (
-            <View>
+            <View style={styles.view}>
                 <Navbar
                     left={'< ' + Trans.t('back')}
                     title={Trans.t("aboutus")}
@@ -32,6 +32,10 @@ var AboutUsView = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    view: {
+        flex: 1,
+        backgroundColor: 'rgb(255,255,255)'
+    },
     title: {
         fontSize: 18,
         color: 'rgb(28,28,28)'

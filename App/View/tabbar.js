@@ -9,19 +9,11 @@ var {
 } = React;
 
 var ScrollTabBar = React.createClass({
-    getInitialState: function(){
-        return {
-            page: 0
-        }
-    },
     onPress: function(page){
-        this.setState({
-            page: page
-        });
         this.props.goToPage(page);
     },
     getTabStyle: function(page){
-        if (page === this.state.page) {
+        if (page === this.props.activeTab) {
             return {
                 borderBottomWidth: 3,
                 borderColor: 'rgb(52,136,245)'
@@ -34,7 +26,7 @@ var ScrollTabBar = React.createClass({
         }
     },
     getTextStyle: function(page){
-        if (page === this.state.page) {
+        if (page === this.props.activeTab) {
             return {
                 color: 'rgb(52,136,245)'
             };

@@ -9,9 +9,10 @@ var NewsRoute = React.createClass({
     render: function(){
         return (
             <Navigator
-                initialRoute={{name: 'NewsView', news: null}}
+                initialRoute={{name: 'NewsView', index: 0, news: null}}
                 configureScene={(route) =>
-                    Navigator.SceneConfigs.HorizontalSwipeJump
+                    //Navigator.SceneConfigs.HorizontalSwipeJump
+                    Navigator.SceneConfigs.FloatFromRight
                 }
                 renderScene={(route, navigator) => {
                     switch(route.name) {

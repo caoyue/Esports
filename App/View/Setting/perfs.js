@@ -16,7 +16,7 @@ var SettingView = React.createClass({
     render: function(){
         var Trans = require('../../I18n/translate');
         return (
-            <View style={{flex: 1}}>
+            <View style={styles.view}>
                 <Navbar
                     left={'< ' + Trans.t('back')}
                     title={Trans.t('setting')}
@@ -73,6 +73,10 @@ var SettingView = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    view: {
+        flex: 1,
+        backgroundColor: 'rgb(255,255,255)'
+    },
     container: {
         flex: 1,
         backgroundColor: 'rgb(239,239,244)'
