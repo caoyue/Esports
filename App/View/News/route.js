@@ -10,7 +10,9 @@ var NewsRoute = React.createClass({
         return (
             <Navigator
                 initialRoute={{name: 'NewsView', news: null}}
-                configureScene={(route) => Navigator.SceneConfigs.HorizontalSwipeJump}
+                configureScene={(route) =>
+                    Navigator.SceneConfigs.HorizontalSwipeJump
+                }
                 renderScene={(route, navigator) => {
                     switch(route.name) {
                         case 'NewsDetailView':
@@ -28,14 +30,18 @@ var NewsRoute = React.createClass({
                             return <LangSwitchView
                                 rout={route}
                                 navigator={navigator} />;
+                        case 'AboutUsView':
+                            var AboutUsView = require('../Setting/aboutUs');
+                            return <AboutUsView
+                                route={route}
+                                navigator={navigator} />
                         default:
                             var NewsView = require('./index');
                             return <NewsView
                                 route={route}
                                 navigator={navigator} />;
                     }}
-                }>
-            </Navigator>
+            } />
         );
     }
 });

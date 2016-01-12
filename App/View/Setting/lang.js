@@ -37,8 +37,8 @@ var LangSwitchView = React.createClass({
         return (
             <View>
                 <Navbar
-                    left='< Back'
-                    title='Setting'
+                    left={'< ' + Trans.t('back')}
+                    title={Trans.t('language')}
                     right=''
                     onLeftPress={() => this.props.navigator.pop()}>
                 </Navbar>

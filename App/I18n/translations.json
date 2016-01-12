@@ -1,5 +1,7 @@
 {
     "en": {
+        "back": "Back",
+        "setting": "Setting",
         "news": "News",
         "match": "Matches",
         "ranking": "Ranking",
@@ -13,6 +15,8 @@
         "transferTo": "transfer"
     },
     "en-US": {
+        "back": "Back",
+        "setting": "Setting",
         "news": "News",
         "match": "Matches",
         "ranking": "Ranking",
@@ -26,6 +30,8 @@
         "transferTo": "transfer"
     },
     "zh-CN": {
+        "back": "返回",
+        "setting": "设置",
         "news": "新闻",
         "match": "比赛",
         "ranking": "实力评级",
@@ -39,6 +45,8 @@
         "transferTo": "转到"
     },
     "zh-HK": {
+        "back": "返回",
+        "setting": "設置",
         "news" : "新聞",
         "match": "比賽",
         "ranking": "實力評級",

@@ -14,11 +14,12 @@ var Trans = require('../../I18n/translate');
 
 var SettingView = React.createClass({
     render: function(){
+        var Trans = require('../../I18n/translate');
         return (
             <View style={{flex: 1}}>
                 <Navbar
-                    left='< Back'
-                    title='Setting'
+                    left={'< ' + Trans.t('back')}
+                    title={Trans.t('setting')}
                     right=''
                     onLeftPress={() => this.props.navigator.pop()}>
                 </Navbar>
@@ -41,7 +42,7 @@ var SettingView = React.createClass({
                         underlayColor='transparent'
                         onPress={
                             () => this.props.navigator.push({
-                                name: 'LangSwitchView'
+                                name: 'AboutUsView'
                             })
                         }>
                         <View style={styles.row}>
