@@ -58,7 +58,9 @@ var TransferView = React.createClass({
     },
     renderNews: function(item) {
         return (
-            <View style={styles.container}>
+            <View
+                key={item.id}
+                style={styles.container}>
                 <View style={[styles.box, styles.border]}>
                     <Image
                         source={require('../../../ImageAssets/team2.jpg')}

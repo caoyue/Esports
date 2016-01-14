@@ -12,7 +12,10 @@
         "hotNews": "Hot",
         "transferNews": "Transfer",
         "topNews": "Top",
-        "transferTo": "transfer"
+        "transferTo": "transfer",
+        "leagueTable": "League Table",
+        "matchProcess": "Match Process",
+        "matchPrediction": "Match Prediction"
     },
     "en-US": {
         "back": "Back",
@@ -27,7 +30,10 @@
         "hotNews": "Hot",
         "transferNews": "Transfer",
         "topNews": "Top",
-        "transferTo": "transfer"
+        "transferTo": "transfer",
+        "leagueTable": "League Table",
+        "matchProcess": "Match Process",
+        "matchPrediction": "Match Prediction"
     },
     "zh-CN": {
         "back": "返回",
@@ -42,7 +48,10 @@
         "hotNews": "热门焦点",
         "transferNews": "转会名单",
         "topNews": "头条热话",
-        "transferTo": "转到"
+        "transferTo": "转到",
+        "leagueTable": "联赛积分表",
+        "matchProcess": "赛事进程",
+        "matchPrediction": "赛事预测"
     },
     "zh-HK": {
         "back": "返回",
@@ -57,6 +66,9 @@
         "hotNews": "熱門焦點",
         "transferNews": "轉會名單",
         "topNews": "頭條熱話",
-        "transferTo": "轉到"
+        "transferTo": "轉到",
+        "leagueTable": "聯賽積分表",
+        "matchProcess": "賽事進程",
+        "matchPrediction": "賽事預測"
     }
 }

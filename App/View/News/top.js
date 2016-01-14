@@ -57,7 +57,9 @@ var TopView = React.createClass({
     },
     renderNews: function(item) {
         return (
-            <View style={styles.container}>
+            <View
+                key={item.id}
+                style={styles.container}>
                 <View style={styles.left}>
                     <Text style={styles.point}>·</Text></View>
                 <View style={styles.right}>
@@ -81,18 +83,19 @@ var styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     left: {
-        width: 30,
+        width: 20,
         justifyContent: 'center'
     },
     point: {
         color: 'rgb(53,53,53)',
-        fontSize: 30,
+        fontSize: 20,
         textAlign: 'center',
         paddingTop: 5
     },
     right: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingRight: 10
     },
     title: {
         color: 'rgb(53,53,53)',

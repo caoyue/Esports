@@ -25,6 +25,7 @@ var HomeView = React.createClass({
     render: function() {
         StatusBarIOS.setStyle('light-content');
         var NewsRoute = require('../View/News/route');
+        var MatchRoute = require('../View/Match/route');
         return (
             <TabBarIOS
                 style={styles.tabBar}
@@ -53,18 +54,7 @@ var HomeView = React.createClass({
                             selectedTab: 'Scores'
                         });
                     }}>
-                    <NavigatorIOS
-                        style={styles.container}
-                        translucent={false}
-                        barTintColor={'#333333'}
-                        tintColor={'white'}
-                        titleTextColor={'white'}
-                        translucent={false}
-                        shadowHidden={true}
-                        initialRoute={{
-                            title: 'Scores',
-                            component: require('./scores')
-                        }}/>
+                    <MatchRoute />
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     accessibilityLabel={'Standings'}

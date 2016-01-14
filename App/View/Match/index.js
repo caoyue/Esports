@@ -11,7 +11,7 @@ var {
 var Navbar = require('../../View/navbar');
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 
-var NewsView = React.createClass({
+var MatchView = React.createClass({
     toSetting: function(){
         this.props.navigator.push({
             name: 'SettingView'
@@ -20,42 +20,34 @@ var NewsView = React.createClass({
     },
     render: function() {
         var Trans = require('../../I18n/translate');
-        var HotNews = require('./hot');
-        var TransferNews = require('./transfer');
-        var TopNews = require('./top');
         var TabBar = require('../../View/tabbar');
+        var TableView = require('./table');
         var tabs = [
-            Trans.t('hotNews'),
-            Trans.t('transferNews'),
-            Trans.t('topNews')
+            Trans.t('leagueTable'),
+            Trans.t('matchProcess'),
+            Trans.t('matchPrediction')
         ];
         return (
             <View style={{backgroundColor: 'rgb(255,255,255)'}}>
                 <Navbar
                     left='Menu'
-                    title={Trans.t('news')}
+                    title={Trans.t('match')}
                     right='China'
                     onLeftPress={() => {this.toSetting()}}>
                 </Navbar>
                 <ScrollableTabView
                     locked={true}
                     renderTabBar={() => <TabBar tabs={tabs} />}>
-                    <HotNews
-                        tabLabel={Trans.t('hotNews')}
+                    <TableView
+                        tabLabel={Trans.t('leagueTable')}
                         route={this.props.route}
                         navigator={this.props.navigator} />
-                    <TransferNews
-                        tabLabel={Trans.t('transferNews')}
-                        route={this.props.route}
-                        navigator={this.props.navigator} />
-                    <TopNews
-                        tabLabel={Trans.t('topNews')}
-                        route={this.props.route}
-                        navigator={this.props.navigator} />
+                    <View tabLabel={Trans.t('matchProcess')}></View>
+                    <View tabLabel={Trans.t('matchPrediction')}></View>
                 </ScrollableTabView>
             </View>
         );
     }
 });
 
-module.exports = NewsView;
+module.exports = MatchView;

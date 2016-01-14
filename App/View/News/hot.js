@@ -18,7 +18,7 @@ var HotNews = React.createClass({
     getInitialState: function() {
         var ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
-        })
+        });
         return {
             loaded: false,
             news: ds.cloneWithRows([])
@@ -65,7 +65,9 @@ var HotNews = React.createClass({
     },
     renderNews: function(item) {
         return (
-            <TouchableHighlight onPress={() => this.onPress(item)}>
+            <TouchableHighlight
+                key={item.id}
+                onPress={() => this.onPress(item)}>
                 <View style={[styles.box, styles.border]}>
                     <Image
                         style={styles.image}
