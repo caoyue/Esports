@@ -2,7 +2,6 @@
 
 var React = require('react-native');
 var {
-    StyleSheet,
     Text,
     Image,
     View,
@@ -30,7 +29,10 @@ var NewsView = React.createClass({
             Trans.t('topNews')
         ];
         return (
-            <View style={{backgroundColor: 'rgb(255,255,255)'}}>
+            <View style={{
+                    flex: 1,
+                    backgroundColor: 'white'
+                }}>
                 <Navbar
                     left='Menu'
                     title={Trans.t('news')}

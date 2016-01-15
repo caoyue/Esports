@@ -8,54 +8,33 @@ var {
     StyleSheet
 } = React;
 
+var MOCK_DATA = ["1", "2", "3", "4"];
+
+var RefreshListView = require('../../View/refreshList');
 var Trans = require('../../I18n/translate');
 
 var TopView = React.createClass({
-    getInitialState: function() {
-        var ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2
+    onFetch: function(page=1, callback, options){
+        this.setState({
+            loaded: true
         });
-        return {
-            loaded: false,
-            news: ds.cloneWithRows([])
-        }
-    },
-    componentDidMount: function() {
-        this.fetchData();
-    },
-    fetchData: function() {
-        var Api = require('../../Api/api');
-        fetch(Api.News()).then((response) => {
-            return response.json();
-        }).
-        catch((error) => {
-            React.AlertIOS.alert('Error',
-            'error:' + error.message);
-        }).
-        then((data) => {
-            this.setState({
-                loaded: true,
-                news: this.state.news.cloneWithRows(data)
+        var rows = MOCK_DATA;
+        if (page === 3) {
+            callback(rows, {
+                allLoaded: true
             });
-        });
+        } else {
+            callback(rows);
+        }
     },
     render: function(){
-        if (!this.state.loaded) {
-            var LoadingView = require('../../View/loading');
-            return (
-                <LoadingView />
-            );
-        }
         return (
-            <ListView
-                style={styles.list}
-                dataSource={this.state.news}
-                renderRow={this.renderNews}
-                automaticallyAdjustContentInsets={false}
-            />
-        );
+            <RefreshListView
+                onFetch={this.onFetch}
+                rowView={this.renderRow} />
+            );
     },
-    renderNews: function(item) {
+    renderRow: function(item) {
         return (
             <View
                 key={item.id}

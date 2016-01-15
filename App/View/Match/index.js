@@ -28,7 +28,7 @@ var MatchView = React.createClass({
             Trans.t('matchPrediction')
         ];
         return (
-            <View style={{backgroundColor: 'rgb(255,255,255)'}}>
+            <View style={{flex: 1}}>
                 <Navbar
                     left='Menu'
                     title={Trans.t('match')}
@@ -37,12 +37,21 @@ var MatchView = React.createClass({
                 </Navbar>
                 <ScrollableTabView
                     locked={true}
-                    renderTabBar={() => <TabBar tabs={tabs} />}>
+                    renderTabBar={() => <TabBar tabs={tabs} />} >
                     <TableView
+                        style={{
+                            flex: 1
+                        }}
                         tabLabel={Trans.t('leagueTable')}
                         route={this.props.route}
                         navigator={this.props.navigator} />
-                    <View tabLabel={Trans.t('matchProcess')}></View>
+                    <View tabLabel={Trans.t('matchProcess')}
+                        style={{
+                            flex: 1,
+                            backgroundColor: 'yellow'
+                        }}>
+                        <Text>Focus</Text>
+                    </View>
                     <View tabLabel={Trans.t('matchPrediction')}></View>
                 </ScrollableTabView>
             </View>

@@ -61,11 +61,11 @@ var ScrollTabBar = React.createClass({
 
 var styles = StyleSheet.create({
     container: {
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 36
+        height: 36,
+        backgroundColor: 'white'
     },
     tab: {
         flex: 1,

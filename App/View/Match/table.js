@@ -2,49 +2,63 @@
 
 var React = require('react-native');
 var {
-    ListView,
     View,
     Text,
     Image,
     StyleSheet
 } = React;
 
-var RefreshableListView = require('react-native-refreshable-listview');
+var RefreshListView = require('../../View/refreshList');
 
 var TableView = React.createClass({
-    getInitialState: function(){
-        var ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2
-        });
-        return {
-            dataSource: ds
+    onFetch: function(page=1, callback, options){
+        var rows = [4*(page-1) + 1,4*(page-1) + 2,4*(page-1) + 3,4*(page-1) + 4];
+        if (page === 3) {
+            callback(rows, {
+                allLoaded: true
+            });
+        } else {
+            callback(rows);
         }
-    },
-    componentDidMount: function(){
-        this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(["1", "2"])
-        })
-    },
-    reload: function(){
-        this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(["1,","2","3","4"])
-        });
     },
     render: function(){
         return (
-            <RefreshableListView
-                style={styles.list}
-                dataSource={this.state.dataSource}
-                renderRow={this.renderRow}
-                loadData={this.reload}
-                refreshDescription='Refreshing' />
+            <View style={styles.view}>
+                <View style={styles.tab}>
+                    <View style={styles.flex}>
+                        <Text
+                            style={[styles.text, {textAlign: 'left'}]}>
+                            联赛类型
+                        </Text>
+                    </View>
+                    <View style={styles.flex}>
+                        <Text
+                            style={[styles.text, {textAlign: 'right'}]}>
+                            LOL ALl STAR▼
+                        </Text>
+                    </View>
+                </View>
+                <View style={styles.header}>
+                    <Text
+                        style={[styles.flex, styles.text, {textAlign: 'left'}]}>
+                        战队排行
+                    </Text>
+                    <Text
+                        style={[styles.flex, styles.text, {textAlign: 'right'}]}>
+                        联赛积分
+                    </Text>
+                </View>
+                <RefreshListView
+                    onFetch={this.onFetch}
+                    rowView={this.renderRow} />
+            </View>
         );
     },
-    renderRow: function(){
+    renderRow: function(row){
         return (
             <View style={styles.container}>
                 <View style={styles.rank}>
-                    <Text style={styles.rankText}>1</Text>
+                    <Text style={styles.rankText}>{row}</Text>
                 </View>
                 <View style={styles.box}>
                     <Image
@@ -73,6 +87,32 @@ var TableView = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    view: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
+    tab: {
+        flexDirection: 'row',
+        paddingTop: 5,
+        paddingBottom: 5,
+        borderBottomWidth: 1,
+        borderColor: 'rgb(225,225,245)'
+    },
+    header: {
+        flexDirection: 'row',
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 10
+    },
+    flex: {
+        flex: 1,
+        paddingLeft: 20,
+        paddingRight: 20
+    },
+    text: {
+        fontSize: 16,
+        color: 'gray'
+    },
     list: {
         backgroundColor: 'white',
         height: 1000
@@ -83,7 +123,7 @@ var styles = StyleSheet.create({
         alignItems: 'center'
     },
     rank: {
-        width: 40
+        width: 36
     },
     rankText: {
         fontSize: 14,
@@ -129,11 +169,12 @@ var styles = StyleSheet.create({
         borderColor: 'gray'
     },
     points: {
-        width: 60,
+        width: 100,
     },
     pointText: {
         color: 'gray',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 16
     }
 });
 

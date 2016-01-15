@@ -42,7 +42,11 @@ var NewsRoute = React.createClass({
                                 route={route}
                                 navigator={navigator} />;
                     }}
-            } />
+                }
+                sceneStyle={{
+                    flex: 1,
+                    backgroundColor: 'white'
+                }} />
         );
     }
 });

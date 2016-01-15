@@ -11,30 +11,10 @@ var {
     TouchableHighlight,
 } = React;
 
-var LoadingView = require('../../View/loading');
 var Navbar = require('../../View/navbar');
 
 var NewsDetailView = React.createClass({
-    getInitialState: function() {
-        return {
-            loaded: false,
-            news: "null"
-        }
-    },
-    componentDidMount: function() {
-        setTimeout(this.fetchData, 500);
-    },
-    fetchData: function() {
-        this.setState({
-            loaded: true
-        })
-    },
     render: function() {
-        if (!this.state.loaded) {
-            return (
-                <LoadingView />
-            );
-        }
         return (
             <View style={styles.list}>
                 <Navbar

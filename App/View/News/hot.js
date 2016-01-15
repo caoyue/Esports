@@ -10,37 +10,48 @@ var {
     StyleSheet
 } = React;
 
+var MOCK_DATA = [
+    {
+        "id": 1,
+        "title": "Everything you need to konw about the 2015 World Championship",
+        "image": "http://www.publicdomainpictures.net/pictures/70000/nahled/corbet.jpg",
+        "author": "LoL",
+        "time": "1 week ago"
+    },
+    {
+        "id": 2,
+        "title": "theScore eSports's 2015 World Championship Power Rankings",
+        "image": "http://www.publicdomainpictures.net/pictures/10000/nahled/87-1265714548Otmq.jpg",
+        "author": "LoL",
+        "time": "5 days ago"
+    },
+    {
+        "id": 3,
+        "title": "Everything you need to konw about the 2015 World Championship",
+        "image": "http://www.publicdomainpictures.net/pictures/70000/nahled/corbet.jpg",
+        "author": "LoL",
+        "time": "1 week ago"
+    }
+];
+
 var NewsDetailView = require('./newsDetail');
-var LoadingView = require('../../View/loading');
+var RefreshListView = require('../../View/refreshList');
+
 var Api = require('../../Api/api');
 
 var HotNews = React.createClass({
-    getInitialState: function() {
-        var ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2
+    onFetch: function(page=1, callback, options){
+        this.setState({
+            loaded: true
         });
-        return {
-            loaded: false,
-            news: ds.cloneWithRows([])
-        }
-    },
-    componentDidMount: function() {
-        this.fetchData();
-    },
-    fetchData: function() {
-        fetch(Api.News()).then((response) => {
-            return response.json();
-        }).
-        catch((error) => {
-            React.AlertIOS.alert('Loading News Error',
-            'error:' + error.message);
-        }).
-        then((data) => {
-            this.setState({
-                loaded: true,
-                news: this.state.news.cloneWithRows(data)
+        var rows = MOCK_DATA;
+        if (page === 3) {
+            callback(rows, {
+                allLoaded: true
             });
-        });
+        } else {
+            callback(rows);
+        }
     },
     onPress: function(data) {
         this.props.navigator.push({
@@ -49,47 +60,39 @@ var HotNews = React.createClass({
         });
     },
     render: function(){
-        if (!this.state.loaded) {
+        return (
+            <RefreshListView
+                onFetch={this.onFetch}
+                rowView={this.renderNews} />
+            );
+        },
+        renderNews: function(item) {
             return (
-                <LoadingView />
+                <TouchableHighlight
+                    key={item.id}
+                    onPress={() => this.onPress(item)}>
+                    <View style={[styles.box, styles.border]}>
+                        <Image
+                            style={styles.image}
+                            source={{uri: item.image}}>
+                            <View style={styles.backdrop}>
+                                <Text style={[styles.title]}>
+                                    {item.title}
+                                </Text>
+                                <Text style={[styles.tag]}>
+                                    {item.author} Featured {item.time}
+                                </Text>
+                            </View>
+                        </Image>
+                    </View>
+                </TouchableHighlight>
             );
         }
-        return (
-            <ListView
-                style={styles.list}
-                dataSource={this.state.news}
-                renderRow={this.renderNews}
-                automaticallyAdjustContentInsets={false}
-            />
-        );
-    },
-    renderNews: function(item) {
-        return (
-            <TouchableHighlight
-                key={item.id}
-                onPress={() => this.onPress(item)}>
-                <View style={[styles.box, styles.border]}>
-                    <Image
-                        style={styles.image}
-                        source={{uri: item.image}}>
-                        <View style={styles.backdrop}>
-                            <Text style={[styles.title]}>
-                                {item.title}
-                            </Text>
-                            <Text style={[styles.tag]}>
-                                {item.author} Featured {item.time}
-                            </Text>
-                        </View>
-                    </Image>
-                </View>
-            </TouchableHighlight>
-        );
-    }
 });
 
 var styles = StyleSheet.create({
     list: {
-        backgroundColor: 'gray',
+        backgroundColor: 'white',
     },
     box: {
         flex: 1,
