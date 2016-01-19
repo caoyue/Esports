@@ -16,12 +16,12 @@ var MatchView = React.createClass({
         this.props.navigator.push({
             name: 'SettingView'
         });
-        console.log(this.props.navigator.getCurrentRoutes());
     },
     render: function() {
         var Trans = require('../../I18n/translate');
         var TabBar = require('../../View/tabbar');
         var TableView = require('./table');
+        var ProcessView = require('./process');
         var tabs = [
             Trans.t('leagueTable'),
             Trans.t('matchProcess'),
@@ -38,20 +38,14 @@ var MatchView = React.createClass({
                 <ScrollableTabView
                     locked={true}
                     renderTabBar={() => <TabBar tabs={tabs} />} >
-                    <TableView
-                        style={{
-                            flex: 1
-                        }}
+                    <TableView style={{flex: 1}}
                         tabLabel={Trans.t('leagueTable')}
                         route={this.props.route}
                         navigator={this.props.navigator} />
-                    <View tabLabel={Trans.t('matchProcess')}
-                        style={{
-                            flex: 1,
-                            backgroundColor: 'yellow'
-                        }}>
-                        <Text>Focus</Text>
-                    </View>
+                    <ProcessView tabLabel={Trans.t('matchProcess')}
+                        style={{flex: 1}}
+                        route={this.props.route}
+                        navigator={this.props.navigator} />
                     <View tabLabel={Trans.t('matchPrediction')}></View>
                 </ScrollableTabView>
             </View>
