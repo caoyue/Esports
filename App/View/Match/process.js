@@ -85,7 +85,7 @@ var ProcessView = React.createClass({
                         <Text style={styles.rgtText}>3</Text>
                         <View style={{flex: 1, alignItems: 'center'}}>
                             <TouchableHighlight
-                                style={{width: 36}}>
+                                style={{width: 40}}>
                                 <Text style={styles.detail}>详细</Text>
                             </TouchableHighlight>
                         </View>
@@ -170,7 +170,11 @@ var styles = StyleSheet.create({
     detail: {
         color: 'white',
         backgroundColor: 'rgb(243,152,0)',
-        textAlign: 'center'
+        textAlign: 'center',
+        paddingTop: 3,
+        paddingBottom: 3,
+        paddingLeft: 3,
+        paddingRight: 3
     }
 });
 

@@ -22,6 +22,7 @@ var MatchView = React.createClass({
         var TabBar = require('../../View/tabbar');
         var TableView = require('./table');
         var ProcessView = require('./process');
+        var PredictionView = require('./prediction');
         var tabs = [
             Trans.t('leagueTable'),
             Trans.t('matchProcess'),
@@ -46,7 +47,11 @@ var MatchView = React.createClass({
                         style={{flex: 1}}
                         route={this.props.route}
                         navigator={this.props.navigator} />
-                    <View tabLabel={Trans.t('matchPrediction')}></View>
+                    <PredictionView
+                        style={{flex: 1}}
+                        tabLabel={Trans.t('matchPrediction')}
+                        route={this.props.route}
+                        navigator={this.props.navigator} />
                 </ScrollableTabView>
             </View>
         );
