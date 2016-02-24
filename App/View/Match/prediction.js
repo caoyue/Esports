@@ -31,7 +31,9 @@ var PredictionView = React.createClass({
                             查看预测详情请注册
                         </Text>
                     </View>
-                    <TouchableHighlight style={styles.touch}>
+                    <TouchableHighlight
+                        style={styles.touch}
+                        underlayColor='transparent'>
                         <Text style={styles.reg}>注册</Text>
                     </TouchableHighlight>
                 </View>

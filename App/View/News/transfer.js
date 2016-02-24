@@ -48,7 +48,7 @@ var TransferView = React.createClass({
                 </View>
                 <View style={styles.box}>
                     <Image
-                        source={require('../../../ImageAssets/team2.jpg')}
+                        source={require('../../../ImageAssets/team1.jpg')}
                         style={styles.img} />
                     <Text style={styles.club}>LGD Esport Club</Text>
                     <Image style={styles.arrow}>
@@ -86,7 +86,8 @@ var styles = StyleSheet.create({
     person: {
         flex: 1,
         textAlign: 'left',
-        fontSize: 16,
+        fontSize: 18,
+        color: 'rgb(58,58,58)',
         paddingLeft: 5,
     },
     date: {
@@ -97,6 +98,7 @@ var styles = StyleSheet.create({
     club: {
         flex: 1,
         fontSize: 12,
+        color: 'rgb(58,58,58)',
         paddingLeft: 5,
     },
     arrow: {

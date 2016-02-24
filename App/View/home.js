@@ -26,6 +26,7 @@ var HomeView = React.createClass({
         StatusBarIOS.setStyle('light-content');
         var NewsRoute = require('../View/News/route');
         var MatchRoute = require('../View/Match/route');
+        var RankRoute = require('../View/Rank/route');
         return (
             <TabBarIOS
                 style={styles.tabBar}
@@ -44,39 +45,30 @@ var HomeView = React.createClass({
                     <NewsRoute />
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
-                    accessibilityLabel={'Scores'}
-                    selected={this.state.selectedTab === 'Scores'}
+                    accessibilityLabel={'Matches'}
+                    selected={this.state.selectedTab === 'Matches'}
                     title={Trans.t('match')}
-                    name='Scores'
+                    name='Matches'
                     icon={require('../../ImageAssets/tabbar.png')}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'Scores'
+                            selectedTab: 'Matches'
                         });
                     }}>
                     <MatchRoute />
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
-                    accessibilityLabel={'Standings'}
-                    selected={this.state.selectedTab === 'Standings'}
-                    title='Standings'
-                    name='Standings'
+                    accessibilityLabel={'Rank'}
+                    selected={this.state.selectedTab === 'Rank'}
+                    title={Trans.t('rank')}
+                    name='Rank'
                     icon={require('../../ImageAssets/tabbar2.png')}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'Standings'
+                            selectedTab: 'Rank'
                         });
                     }}>
-                    <NavigatorIOS
-                        style={styles.container}
-                        translucent={false}
-                        barTintColor={'#333333'}
-                        tintColor={'white'}
-                        titleTextColor={'white'}
-                        initialRoute={{
-                            title: 'Standings',
-                            component: require('./standings')
-                        }} />
+                    <RankRoute />
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     accessibilityLabel={'Leaders'}

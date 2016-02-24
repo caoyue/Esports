@@ -23,6 +23,7 @@ var RefreshListView = React.createClass({
                 firstLoader={false}
                 pagination={true}
                 refreshable={true}
+                refreshableDistance={10}
                 customStyles={{
                     refreshableView: {
                         backgroundColor: 'white',

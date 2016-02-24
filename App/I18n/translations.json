@@ -15,7 +15,10 @@
         "transferTo": "transfer",
         "leagueTable": "League Table",
         "matchProcess": "Match Process",
-        "matchPrediction": "Match Prediction"
+        "matchPrediction": "Match Prediction",
+        "rank": "Rank",
+        "teamRank": "Team Rank",
+        "playerRank": "Player Rank"
     },
     "en-US": {
         "back": "Back",
@@ -33,7 +36,10 @@
         "transferTo": "transfer",
         "leagueTable": "League Table",
         "matchProcess": "Match Process",
-        "matchPrediction": "Match Prediction"
+        "matchPrediction": "Match Prediction",
+        "rank": "Rank",
+        "teamRank": "Team Rank",
+        "playerRank": "Player Rank"
     },
     "zh-CN": {
         "back": "返回",
@@ -51,7 +57,10 @@
         "transferTo": "转到",
         "leagueTable": "联赛积分表",
         "matchProcess": "赛事进程",
-        "matchPrediction": "赛事预测"
+        "matchPrediction": "赛事预测",
+        "rank": "实力评级",
+        "teamRank": "队伍排行",
+        "playerRank": "选手排行"
     },
     "zh-HK": {
         "back": "返回",
@@ -69,6 +78,9 @@
         "transferTo": "轉到",
         "leagueTable": "聯賽積分表",
         "matchProcess": "賽事進程",
-        "matchPrediction": "賽事預測"
+        "matchPrediction": "賽事預測",
+        "rank": "實力評級",
+        "teamRank": "隊伍排行",
+        "playerRank": "選手排行"
     }
 }
