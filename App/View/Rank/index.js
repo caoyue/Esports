@@ -20,6 +20,7 @@ var RankView = React.createClass({
         var Trans = require('../../I18n/translate');
         var TabBar = require('../../View/tabbar');
         var TeamRankView = require('./team');
+        var PlayerRankView = require('./player');
         var tabs = [
             Trans.t('teamRank'),
             Trans.t('playerRank'),
@@ -43,7 +44,7 @@ var RankView = React.createClass({
                         tabLabel={Trans.t('teamRank')}
                         route={this.props.route}
                         navigator={this.props.navigator} />
-                    <View
+                    <PlayerRankView
                         tabLabel={Trans.t('playerRank')}
                         route={this.props.route}
                         navigator={this.props.navigator} />
