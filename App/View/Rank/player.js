@@ -43,15 +43,18 @@ var PlayerRankView = React.createClass({
                 </View>
                 <View style={styles.header}>
                     <Text
-                        style={[styles.flex, styles.headerText]}>
+                        style={[styles.flex, styles.headerText, {
+                            textAlign: 'left',
+                            paddingLeft: 30
+                        }]}>
                         选手排行
                     </Text>
                     <Text
-                        style={[styles.headerText, {width: 70}]}>
+                        style={[styles.headerText, {width: 60}]}>
                         积分
                     </Text>
                     <Text
-                        style={[styles.headerText, {width: 70}]}>
+                        style={[styles.headerText, {width: 60}]}>
                         KDA
                     </Text>
                 </View>
@@ -86,37 +89,83 @@ var PlayerRankView = React.createClass({
         return (
             <View key={row}
                 style={[styles.box, styles.border,
-                    {paddingTop: 15, paddingBottom: 15, marginLeft: 15, marginRight: 15}]}>
+                    {paddingTop: 15, paddingBottom: 15}]}>
                 <View style={styles.box}>
-                    <View style={{width: 25}}>
+                    <View style={{width: 20}}>
                         <Text style={styles.number}>{row}</Text>
                     </View>
-                    <View style={{width: 55, paddingLeft: 15}}>
+                    <View style={{width: 45, paddingLeft: 10}}>
                         <Image
                             style={styles.teamIcon}
                             source={require('../../../ImageAssets/team2.jpg')}>
                         </Image>
                     </View>
-                    <View style={[styles.flex,
-                            {alignItems: 'center', justifyContent: 'center'}]}>
-                        <View>
-                            <Text style={[styles.text, {paddingBottom: 5}]}>
-                                Gravity
-                            </Text>
+                    <View style={[styles.flex, {
+                            alignItems: 'flex-start',
+                            justifyContent: 'center',
+                            paddingLeft: 15
+                        }]}>
+                        <View style={{
+                                flex: 1,
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                            <View>
+                                <Text style={{
+                                        fontSize: 16,
+                                        color: 'rgb(103,180,208)'}}>
+                                        TenwowCarry
+                                </Text>
+                                <Text style={{
+                                        color: 'rgb(160,160,160)',
+                                        fontSize: 12}}>
+                                        LGD 电子竞技俱乐部
+                                </Text>
+                            </View>
+                            <View>
+                                <Text style={{
+                                        fontSize: 10,
+                                        color: 'rgb(203,124,33)',
+                                        paddingTop: 5,
+                                        paddingLeft: 5
+                                    }}>
+                                    胜率 80%
+                                </Text>
+                            </View>
                         </View>
-                        <View style={[styles.flex, {flexDirection: 'row', alignItems: 'center'}]}>
+                        <View style={[styles.flex, {
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    paddingTop: 5
+                                }]}>
+                            <Text style={{
+                                    color: 'rgb(160,160,160)',
+                                    fontSize: 12,
+                                    paddingRight: 5
+                                }}>
+                                打野｜常用英雄
+                            </Text>
                             <Image
-                                style={styles.winIcon}
+                                style={styles.heroIcon}
                                 source={require('../../../ImageAssets/team1.jpg')}>
                             </Image>
-                            <Text style={{color: 'rgb(213,128,28)'}}>win 80%</Text>
+                            <Image
+                                style={styles.heroIcon}
+                                source={require('../../../ImageAssets/team1.jpg')}>
+                            </Image>
+                            <Image
+                                style={styles.heroIcon}
+                                source={require('../../../ImageAssets/team1.jpg')}>
+                            </Image>
                         </View>
                     </View>
                 </View>
-                <View style={{width: 70}}>
+                <View style={{width: 60}}>
                     <Text style={styles.text}>2012</Text>
                 </View>
-                <View style={{width: 70}}>
+                <View style={{width: 60}}>
                     <Text style={styles.text}>
                         Active
                     </Text>
@@ -129,7 +178,9 @@ var PlayerRankView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'rgb(10,20,29)'
+        backgroundColor: 'rgb(10,20,29)',
+        paddingLeft: 5,
+        paddingRight: 5
     },
     tab: {
         flexDirection: 'row',
@@ -141,7 +192,6 @@ var styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         paddingTop: 10,
-        paddingBottom: 10,
         paddingLeft: 10
     },
     filter: {
@@ -172,7 +222,7 @@ var styles = StyleSheet.create({
         textAlign: 'center'
     },
     text: {
-        fontSize: 18,
+        fontSize: 16,
         color: 'rgb(160,160,160)',
         textAlign: 'center'
     },
@@ -180,13 +230,13 @@ var styles = StyleSheet.create({
         flex: 1,
     },
     number: {
-        fontSize: 22,
+        fontSize: 20,
         color: 'rgb(167,130,28)',
         textAlign: 'center'
     },
     teamIcon: {
-        width: 40,
-        height: 40
+        width: 35,
+        height: 35
     },
     winIcon: {
         width: 20,
@@ -195,7 +245,12 @@ var styles = StyleSheet.create({
     border: {
         borderColor: 'rgb(34,47,56)',
         borderBottomWidth: 1
-    }
+    },
+    heroIcon: {
+        width: 15,
+        height: 15,
+        marginLeft: 5
+    },
 });
 
 module.exports = PlayerRankView;

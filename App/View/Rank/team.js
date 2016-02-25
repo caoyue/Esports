@@ -27,15 +27,18 @@ var TeamRankView = React.createClass({
             <View style={styles.view}>
                 <View style={styles.header}>
                     <Text
-                        style={[styles.flex, styles.headerText]}>
+                        style={[styles.flex, styles.headerText, {
+                            textAlign: 'left',
+                            paddingLeft: 30
+                        }]}>
                         队伍排行
                     </Text>
                     <Text
-                        style={[styles.headerText, {width: 70}]}>
+                        style={[styles.headerText, {width: 60}]}>
                         积分
                     </Text>
                     <Text
-                        style={[styles.headerText, {width: 70}]}>
+                        style={[styles.headerText, {width: 60}]}>
                         状态
                     </Text>
                 </View>
@@ -49,19 +52,22 @@ var TeamRankView = React.createClass({
         return (
             <View key={row}
                 style={[styles.box, styles.border,
-                    {paddingTop: 15, paddingBottom: 15, marginLeft: 15, marginRight: 15}]}>
+                    {paddingTop: 15, paddingBottom: 15}]}>
                 <View style={styles.box}>
-                    <View style={{width: 25}}>
+                    <View style={{width: 20}}>
                         <Text style={styles.number}>{row}</Text>
                     </View>
-                    <View style={{width: 55, paddingLeft: 15}}>
+                    <View style={{width: 55, paddingLeft: 10}}>
                         <Image
                             style={styles.teamIcon}
                             source={require('../../../ImageAssets/team2.jpg')}>
                         </Image>
                     </View>
-                    <View style={[styles.flex,
-                            {alignItems: 'center', justifyContent: 'center'}]}>
+                    <View style={[styles.flex, {
+                            alignItems: 'flex-start',
+                            justifyContent: 'center',
+                            paddingLeft: 15
+                        }]}>
                         <View>
                             <Text style={[styles.text, {paddingBottom: 5}]}>
                                 Gravity
@@ -72,14 +78,17 @@ var TeamRankView = React.createClass({
                                 style={styles.winIcon}
                                 source={require('../../../ImageAssets/team1.jpg')}>
                             </Image>
-                            <Text style={{color: 'rgb(213,128,28)'}}>win 80%</Text>
+                            <Text style={{
+                                    color: 'rgb(213,128,28)',
+                                    paddingLeft: 10
+                                }}>胜率 80%</Text>
                         </View>
                     </View>
                 </View>
-                <View style={{width: 70}}>
+                <View style={{width: 60}}>
                     <Text style={styles.text}>2012</Text>
                 </View>
-                <View style={{width: 70}}>
+                <View style={{width: 60}}>
                     <Text style={styles.text}>
                         Active
                     </Text>
@@ -92,7 +101,9 @@ var TeamRankView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'rgb(10,20,29)'
+        backgroundColor: 'rgb(10,20,29)',
+        paddingLeft: 5,
+        paddingRight: 5
     },
     tab: {
         flexDirection: 'row',
@@ -104,7 +115,6 @@ var styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         paddingTop: 10,
-        paddingBottom: 10,
         paddingLeft: 10
     },
     flex: {
@@ -130,13 +140,13 @@ var styles = StyleSheet.create({
         flex: 1,
     },
     number: {
-        fontSize: 22,
+        fontSize: 20,
         color: 'rgb(167,130,28)',
         textAlign: 'center'
     },
     teamIcon: {
-        width: 40,
-        height: 40
+        width: 35,
+        height: 35
     },
     winIcon: {
         width: 20,
