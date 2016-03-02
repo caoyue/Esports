@@ -27,6 +27,7 @@ var HomeView = React.createClass({
         var NewsRoute = require('../View/News/route');
         var MatchRoute = require('../View/Match/route');
         var RankRoute = require('../View/Rank/route');
+        var HeroRoute = require('../View/Hero/route');
         return (
             <TabBarIOS
                 style={styles.tabBar}
@@ -71,26 +72,17 @@ var HomeView = React.createClass({
                     <RankRoute />
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
-                    accessibilityLabel={'Leaders'}
-                    selected={this.state.selectedTab === 'Leaders'}
-                    title='Leaders'
-                    name='Leaders'
+                    accessibilityLabel={'Hero'}
+                    selected={this.state.selectedTab === 'Hero'}
+                    title={Trans.t('hero')}
+                    name='Hero'
                     icon={require('../../ImageAssets/tabbar2.png')}
                     onPress={() => {
                         this.setState({
-                            selectedTab: 'Leaders'
+                            selectedTab: 'Hero'
                         });
                     }}>
-                    <NavigatorIOS
-                        style={styles.container}
-                        translucent={false}
-                        barTintColor={'#333333'}
-                        tintColor={'white'}
-                        titleTextColor={'white'}
-                        initialRoute={{
-                            title: 'Leaders',
-                            component: require('./leaders')
-                        }}/>
+                    <HeroRoute />
                 </TabBarIOS.Item>
             </TabBarIOS>
         );

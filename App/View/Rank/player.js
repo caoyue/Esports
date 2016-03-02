@@ -18,7 +18,7 @@ var PlayerRankView = React.createClass({
         }
     },
     onFetch: function(page=1, callback, options){
-        var rows = ["1", "2", "3"];
+        var rows = ["1", "2", "3", "4", "5"];
         if (page === 3) {
             callback(rows, {
                 allLoaded: true

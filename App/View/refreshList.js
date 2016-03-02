@@ -14,8 +14,6 @@ var RefreshListView = React.createClass({
     render: function(){
         return (
             <GiftedListView
-                contentInset={{bottom: 48}}
-                automaticallyAdjustContentInsets={false}
                 onFetch={this.props.onFetch}
                 rowView={this.props.rowView}
                 paginationAllLoadedView={this._renderPaginationAllLoadedView}
@@ -23,12 +21,12 @@ var RefreshListView = React.createClass({
                 firstLoader={false}
                 pagination={true}
                 refreshable={true}
-                refreshableDistance={10}
                 customStyles={{
                     refreshableView: {
                         backgroundColor: 'white',
                     }
-                }} />
+                }}
+                style={styles.view} />
         );
     },
     _renderPaginationWaitingView(paginateCallback) {
@@ -55,6 +53,9 @@ var RefreshListView = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    view: {
+        marginBottom: 48
+    },
     paginationView: {
         alignItems: 'center'
     },
