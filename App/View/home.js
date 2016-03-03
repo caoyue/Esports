@@ -37,7 +37,7 @@ var HomeView = React.createClass({
                     selected={this.state.selectedTab === 'News'}
                     title={Trans.t('news')}
                     name='News'
-                    icon={require('../../ImageAssets/tabbar3.png')}
+                    icon={require('../../ImageAssets/news.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'News'
@@ -50,7 +50,7 @@ var HomeView = React.createClass({
                     selected={this.state.selectedTab === 'Matches'}
                     title={Trans.t('match')}
                     name='Matches'
-                    icon={require('../../ImageAssets/tabbar.png')}
+                    icon={require('../../ImageAssets/match.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'Matches'
@@ -63,7 +63,7 @@ var HomeView = React.createClass({
                     selected={this.state.selectedTab === 'Rank'}
                     title={Trans.t('rank')}
                     name='Rank'
-                    icon={require('../../ImageAssets/tabbar2.png')}
+                    icon={require('../../ImageAssets/rank.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'Rank'
@@ -76,7 +76,7 @@ var HomeView = React.createClass({
                     selected={this.state.selectedTab === 'Hero'}
                     title={Trans.t('hero')}
                     name='Hero'
-                    icon={require('../../ImageAssets/tabbar2.png')}
+                    icon={require('../../ImageAssets/hero.png')}
                     onPress={() => {
                         this.setState({
                             selectedTab: 'Hero'

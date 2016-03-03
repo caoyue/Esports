@@ -76,7 +76,7 @@ var TeamRankView = React.createClass({
                         <View style={[styles.flex, {flexDirection: 'row', alignItems: 'center'}]}>
                             <Image
                                 style={styles.winIcon}
-                                source={require('../../../ImageAssets/team1.jpg')}>
+                                source={require('../../../ImageAssets/win.png')}>
                             </Image>
                             <Text style={{
                                     color: 'rgb(213,128,28)',
