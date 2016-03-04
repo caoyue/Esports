@@ -61,9 +61,11 @@ var HotNews = React.createClass({
     },
     render: function(){
         return (
-            <RefreshListView
-                onFetch={this.onFetch}
-                rowView={this.renderNews} />
+            <View style={styles.view}>
+                <RefreshListView
+                    onFetch={this.onFetch}
+                    rowView={this.renderNews} />
+            </View>
             );
         },
         renderNews: function(item) {
@@ -91,6 +93,10 @@ var HotNews = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    view: {
+        flex: 1,
+        backgroundColor: 'rgb(10,20,29)'
+    },
     list: {
         backgroundColor: 'white',
     },

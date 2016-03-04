@@ -34,7 +34,8 @@ var NewsView = React.createClass({
                     backgroundColor: 'white'
                 }}>
                 <Navbar
-                    left='Menu'
+                    isLeftSetting={true}
+                    left=''
                     title={Trans.t('news')}
                     right='China'
                     onLeftPress={() => {this.toSetting()}}>
