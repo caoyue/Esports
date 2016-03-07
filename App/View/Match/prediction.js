@@ -69,15 +69,16 @@ var PredictionView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(10,20,29)',
     },
     tab: {
         flexDirection: 'row',
         paddingTop: 5,
         paddingBottom: 5,
         borderBottomWidth: 1,
-        borderColor: 'rgb(225,225,245)',
-        alignItems: 'center'
+        borderColor: 'rgb(20,40,54)',
+        alignItems: 'center',
+        backgroundColor: 'rgb(10,20,29)'
     },
     header: {
         flexDirection: 'row',
@@ -92,7 +93,7 @@ var styles = StyleSheet.create({
     },
     regRemark: {
         fontSize: 12,
-        color: 'gray',
+        color: 'rgb(168,168,168)',
         textAlign: 'left'
     },
     touch: {
@@ -107,7 +108,7 @@ var styles = StyleSheet.create({
         paddingRight: 15,
         paddingTop: 3,
         paddingBottom: 3,
-        borderRadius: 5
+        borderRadius: 3
     },
     container: {
         flex: 1,
@@ -115,7 +116,7 @@ var styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         borderBottomWidth: 1,
-        borderColor: 'rgb(225,225,225)',
+        borderColor: 'rgb(20,30,54)',
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -133,23 +134,22 @@ var styles = StyleSheet.create({
     },
     team: {
         fontSize: 20,
-        color: 'rgb(100,100,100)',
+        color: 'rgb(255,255,255)',
         paddingLeft: 10,
         paddingRight: 10
     },
     time: {
-        paddingBottom: 10
+        paddingBottom: 10,
+        color: 'rgb(255,255,255)'
     },
     score: {
         fontSize: 18,
-        borderWidth: 2,
-        borderRadius: 8,
-        borderColor: 'rgb(167,203,252)',
         paddingLeft: 20,
         paddingRight: 20,
+        color: 'rgb(255,255,255)'
     },
     remark: {
-        color: 'gray',
+        color: 'rgb(255,162,0)',
         fontSize: 12,
         paddingTop: 10
     }

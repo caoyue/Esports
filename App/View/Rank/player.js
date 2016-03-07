@@ -114,11 +114,11 @@ var PlayerRankView = React.createClass({
                             <View>
                                 <Text style={{
                                         fontSize: 16,
-                                        color: 'rgb(103,180,208)'}}>
+                                        color: 'rgb(92,197,241)'}}>
                                         TenwowCarry
                                 </Text>
                                 <Text style={{
-                                        color: 'rgb(160,160,160)',
+                                        color: 'rgb(255,255,255)',
                                         fontSize: 12}}>
                                         LGD 电子竞技俱乐部
                                 </Text>
@@ -126,7 +126,7 @@ var PlayerRankView = React.createClass({
                             <View>
                                 <Text style={{
                                         fontSize: 10,
-                                        color: 'rgb(203,124,33)',
+                                        color: 'rgb(240,135,11)',
                                         paddingTop: 5,
                                         paddingLeft: 5
                                     }}>
@@ -141,7 +141,7 @@ var PlayerRankView = React.createClass({
                                     paddingTop: 5
                                 }]}>
                             <Text style={{
-                                    color: 'rgb(160,160,160)',
+                                    color: 'rgb(255,255,255)',
                                     fontSize: 12,
                                     paddingRight: 5
                                 }}>
@@ -196,12 +196,12 @@ var styles = StyleSheet.create({
     },
     filter: {
         flexDirection: 'row',
-        borderColor: 'rgb(34,47,56)',
+        borderColor: 'rgb(20,40,54)',
         borderBottomWidth: 1,
         borderTopWidth: 1
     },
     filterText: {
-        color: 'rgb(160,160,160)',
+        color: 'rgb(177,177,177)',
         textAlign: 'center',
         fontSize: 16,
         paddingTop: 10,
@@ -218,12 +218,12 @@ var styles = StyleSheet.create({
     },
     headerText: {
         fontSize: 16,
-        color: 'rgb(160,160,160)',
+        color: 'rgb(177,177,177)',
         textAlign: 'center'
     },
     text: {
         fontSize: 16,
-        color: 'rgb(160,160,160)',
+        color: 'rgb(255,255,255)',
         textAlign: 'center'
     },
     container: {
@@ -231,7 +231,7 @@ var styles = StyleSheet.create({
     },
     number: {
         fontSize: 20,
-        color: 'rgb(167,130,28)',
+        color: 'rgb(255,192,0)',
         textAlign: 'center'
     },
     teamIcon: {
@@ -243,7 +243,7 @@ var styles = StyleSheet.create({
         height: 10
     },
     border: {
-        borderColor: 'rgb(34,47,56)',
+        borderColor: 'rgb(20,40,54)',
         borderBottomWidth: 1
     },
     heroIcon: {

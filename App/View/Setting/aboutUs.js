@@ -23,7 +23,7 @@ var AboutUsView = React.createClass({
                         About Lol Matrix
                     </Text>
                     <Text style={styles.content}>
-                        Lol Matrix
+                        LOL自09年在欧美上市以来，迅速在中国、韩国、美、欧洲大陆等全球范围掀起了全民英雄对战的狂潮，来自145个不同国家，数以千万计的玩家每天通过《英雄联盟》享受着在线电子竞技的快乐。
                     </Text>
                 </View>
             </View>
@@ -34,15 +34,19 @@ var AboutUsView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'rgb(255,255,255)'
+        backgroundColor: 'rgb(20,10,29)'
     },
     title: {
-        fontSize: 18,
-        color: 'rgb(28,28,28)'
+        fontSize: 20,
+        color: 'rgb(255,255,255)',
+        paddingLeft: 10,
+        paddingTop: 10
     },
     content: {
-        fontSize: 12,
-        color: 'gray'
+        fontSize: 14,
+        color: 'rgb(226,226,226)',
+        paddingTop: 10,
+        paddingLeft: 10
     }
 });
 

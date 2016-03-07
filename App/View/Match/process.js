@@ -99,14 +99,15 @@ var ProcessView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'rgb(10,20,29)'
     },
     tab: {
         flexDirection: 'row',
         paddingTop: 5,
         paddingBottom: 5,
         borderBottomWidth: 1,
-        borderColor: 'rgb(225,225,245)'
+        borderColor: 'rgb(20,40,54)',
+        backgroundColor: 'rgb(10,20,29)'
     },
     header: {
         flexDirection: 'row',
@@ -121,7 +122,7 @@ var styles = StyleSheet.create({
     },
     text: {
         fontSize: 16,
-        color: 'gray'
+        color: 'rgb(168,168,168)'
     },
     container: {
         flex: 1,
@@ -135,7 +136,7 @@ var styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         borderBottomWidth: 1,
-        borderColor: 'rgb(225,225,225)',
+        borderColor: 'rgb(20,40,54)',
         paddingBottom: 10
     },
     item: {
@@ -151,7 +152,7 @@ var styles = StyleSheet.create({
     },
     club: {
         fontSize: 16,
-        color: 'rgb(58,58,58)',
+        color: 'rgb(110,212,255)',
         paddingLeft: 10,
     },
     itemRgt: {
@@ -164,7 +165,7 @@ var styles = StyleSheet.create({
     rgtText: {
         flex: 1,
         fontSize: 16,
-        color: 'rgb(58,58,58)',
+        color: 'rgb(168,168,168)',
         textAlign: 'center',
     },
     detail: {
@@ -174,7 +175,8 @@ var styles = StyleSheet.create({
         paddingTop: 3,
         paddingBottom: 3,
         paddingLeft: 3,
-        paddingRight: 3
+        paddingRight: 3,
+        borderRadius: 3
     }
 });
 

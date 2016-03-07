@@ -67,7 +67,7 @@ var HeroView = React.createClass({
                         <View style={{flex: 1}}>
                             <Text style={{
                                     fontSize: 16,
-                                    color: 'rgb(75,214,244)'
+                                    color: 'rgb(110,212,255)'
                                 }}>
                                 暗裔剑魔 亚托克斯
                             </Text>
@@ -151,7 +151,7 @@ var styles = StyleSheet.create({
     text: {
         textAlign: 'center',
         fontSize: 12,
-        color: 'rgb(124,130,134)'
+        color: 'rgb(255,255,255)'
     },
     bottomeText: {
         fontSize: 14

@@ -58,10 +58,10 @@ var LangSwitchView = React.createClass({
                     underlayColor='transparent'
                     onPress={() => {this.onPress('zh-HK')}}>
                     <View style={styles.row}>
-                        <Text style={[styles.left, styles.text]}>
+                        <Text style={[styles.text, styles.left]}>
                             繁體中文
                         </Text>
-                        <Text style={[styles.right, styles.text]}>
+                        <Text style={[styles.text, styles.right]}>
                             {this.state.lang === 'zh-HK' ? '√': ''}
                         </Text>
                     </View>
@@ -96,30 +96,31 @@ var LangSwitchView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'rgb(255,255,255)'
+        backgroundColor: 'rgb(10,20,29)'
     },
     container: {
         flex: 1,
-        backgroundColor: 'rgb(239,239,244)'
+        backgroundColor: 'rgb(10,20,29)'
     },
     row: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         height: 50,
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(10,20,29)',
         paddingLeft: 25,
         borderBottomWidth: 1,
-        borderColor: 'rgb(206,206,206)'
+        borderColor: 'rgb(20,40,54)'
     },
     left: {
         flex: 1,
+        color: 'rgb(255,255,255)'
     },
     right: {
         width: 30,
+        color: 'rgb(110,212,255)'
     },
     text: {
-        color: 'rgb(28,28,28)',
         fontSize: 18,
         fontWeight: 'normal'
     },

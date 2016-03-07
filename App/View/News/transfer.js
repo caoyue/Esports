@@ -29,20 +29,23 @@ var TransferView = React.createClass({
     },
     render: function(){
         return (
-            <RefreshListView
-                onFetch={this.onFetch}
-                rowView={this.renderRow} />
-            );
+            <View style={styles.view}>
+                <RefreshListView
+                    onFetch={this.onFetch}
+                    rowView={this.renderRow} />
+            </View>
+        );
+
     },
     renderRow: function(item) {
         return (
             <View
                 key={item}
                 style={styles.container}>
-                <View style={[styles.box, styles.border]}>
+                <View style={[styles.box]}>
                     <Image
                         source={require('../../../ImageAssets/team2.jpg')}
-                        style={styles.img} />
+                        style={{width: 30, height: 30}} />
                     <Text style={styles.person}>EDGClearlove</Text>
                     <Text style={styles.date}>2015/08/08</Text>
                 </View>
@@ -66,9 +69,16 @@ var TransferView = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    view: {
+        flex: 1,
+        backgroundColor: 'rgb(10,20,29)'
+    },
     container: {
-        borderColor: 'rgb(225,225,225)',
-        borderBottomWidth: 1.5
+        borderColor: 'rgb(20,40,54)',
+        borderBottomWidth: 1,
+        backgroundColor: 'rgb(10,20,29)',
+        paddingTop: 5,
+        paddingBottom: 5
     },
     box: {
         flex: 1,
@@ -87,18 +97,18 @@ var styles = StyleSheet.create({
         flex: 1,
         textAlign: 'left',
         fontSize: 18,
-        color: 'rgb(58,58,58)',
+        color: 'rgb(96,187,225)',
         paddingLeft: 5,
     },
     date: {
         textAlign: 'center',
-        color: 'gray',
+        color: 'rgb(127,128,129)',
         fontSize: 12
     },
     club: {
         flex: 1,
         fontSize: 12,
-        color: 'rgb(58,58,58)',
+        color: 'rgb(220,220,220)',
         paddingLeft: 5,
     },
     arrow: {
@@ -107,12 +117,8 @@ var styles = StyleSheet.create({
     },
     arrowText: {
         textAlign: 'center',
-        fontSize: 10,
-        color: 'gray'
-    },
-    border: {
-        borderColor: 'rgb(225,225,225)',
-        borderBottomWidth: 1
+        fontSize: 12,
+        color: 'rgb(220,220,220)'
     }
 });
 

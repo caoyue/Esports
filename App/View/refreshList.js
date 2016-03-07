@@ -95,7 +95,7 @@ var styles = StyleSheet.create({
     },
     refreshLabel: {
         fontSize: 20,
-        color: 'rgb(133,133,133)',
+        color: 'rgb(110,212,255)',
         backgroundColor: 'rgb(10,20,29)',
     },
     paginationView: {
@@ -103,7 +103,7 @@ var styles = StyleSheet.create({
     },
     paginationText: {
         fontSize: 16,
-        color: 'rgb(152,192,255)',
+        color: 'rgb(110,212,255)',
         textAlign: 'center',
         paddingTop: 10,
         paddingBottom: 10

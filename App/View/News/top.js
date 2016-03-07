@@ -29,9 +29,11 @@ var TopView = React.createClass({
     },
     render: function(){
         return (
-            <RefreshListView
-                onFetch={this.onFetch}
-                rowView={this.renderRow} />
+            <View style={styles.view}>
+                <RefreshListView
+                    onFetch={this.onFetch}
+                    rowView={this.renderRow} />
+            </View>
             );
     },
     renderRow: function(item) {
@@ -55,11 +57,17 @@ var TopView = React.createClass({
 });
 
 var styles = StyleSheet.create({
+    view: {
+        flex: 1,
+        backgroundColor: 'rgb(10,20,29)'
+    },
     container: {
         flex: 1,
         flexDirection: 'row',
-        borderColor: 'rgb(225,225,225)',
-        borderBottomWidth: 1
+        borderColor: 'rgb(20,40,54)',
+        borderBottomWidth: 1,
+        backgroundColor: 'rgb(10,20,29)',
+        paddingTop: 5
     },
     left: {
         width: 20,
@@ -77,7 +85,7 @@ var styles = StyleSheet.create({
         paddingRight: 10
     },
     title: {
-        color: 'rgb(53,53,53)',
+        color: 'rgb(205,205,205)',
         fontSize: 16,
         paddingTop: 6,
         paddingBottom: 6

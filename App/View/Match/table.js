@@ -89,14 +89,15 @@ var TableView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'rgb(10,20,29)'
     },
     tab: {
         flexDirection: 'row',
         paddingTop: 5,
         paddingBottom: 5,
         borderBottomWidth: 1,
-        borderColor: 'rgb(225,225,245)'
+        borderColor: 'rgb(20,40,54)',
+        backgroundColor: 'rgb(10,20,29)'
     },
     header: {
         flexDirection: 'row',
@@ -111,11 +112,7 @@ var styles = StyleSheet.create({
     },
     text: {
         fontSize: 16,
-        color: 'gray'
-    },
-    list: {
-        backgroundColor: 'white',
-        height: 1000
+        color: 'rgb(168,168,168)'
     },
     container: {
         flex: 1,
@@ -137,7 +134,7 @@ var styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         borderBottomWidth: 1,
-        borderColor: 'rgb(200,200,200)'
+        borderColor: 'rgb(20,40,54)'
     },
     icon: {
         width: 30,
@@ -147,7 +144,7 @@ var styles = StyleSheet.create({
         flex: 1
     },
     title: {
-        color: 'rgb(23,23,53)',
+        color: 'rgb(110,212,255)',
         fontSize: 16,
         paddingTop: 5,
         paddingBottom: 5,
@@ -158,7 +155,7 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
     },
     win: {
-        color: 'gray',
+        color: 'rgb(131,131,131)',
         fontSize: 14,
         paddingLeft: 10,
         paddingRight: 10
@@ -166,13 +163,13 @@ var styles = StyleSheet.create({
     border: {
         borderLeftWidth: 1,
         borderRightWidth: 1,
-        borderColor: 'gray'
+        borderColor: 'rgb(131,131,131)'
     },
     points: {
         width: 100,
     },
     pointText: {
-        color: 'gray',
+        color: 'rgb(255,255,255)',
         textAlign: 'center',
         fontSize: 16
     }

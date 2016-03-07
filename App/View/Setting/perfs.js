@@ -75,22 +75,22 @@ var SettingView = React.createClass({
 var styles = StyleSheet.create({
     view: {
         flex: 1,
-        backgroundColor: 'rgb(255,255,255)'
+        backgroundColor: 'rgb(10,20,29)'
     },
     container: {
         flex: 1,
-        backgroundColor: 'rgb(239,239,244)'
+        backgroundColor: 'rgb(10,20,29)'
     },
     row: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         height: 50,
-        backgroundColor: 'white',
+        backgroundColor: 'rgb(10,20,29)',
         paddingLeft: 25,
         borderTopWidth: 1,
         borderBottomWidth: 1,
-        borderColor: 'rgb(206,206,206)'
+        borderColor: 'rgb(20,40,54)'
     },
     left: {
         flex: 1,
@@ -99,7 +99,7 @@ var styles = StyleSheet.create({
         width: 30,
     },
     text: {
-        color: 'rgb(28,28,28)',
+        color: 'rgb(255,255,255)',
         fontSize: 18
     },
     first: {

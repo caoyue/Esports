@@ -128,12 +128,12 @@ var styles = StyleSheet.create({
     },
     headerText: {
         fontSize: 16,
-        color: 'rgb(160,160,160)',
+        color: 'rgb(176,176,176)',
         textAlign: 'center'
     },
     text: {
         fontSize: 18,
-        color: 'rgb(160,160,160)',
+        color: 'rgb(255,255,255)',
         textAlign: 'center'
     },
     container: {

@@ -31,6 +31,8 @@ var HomeView = React.createClass({
         return (
             <TabBarIOS
                 style={styles.tabBar}
+                barTintColor='rgb(12,28,44)'
+                tintColor='rgb(110,212,255)'
                 selectedTab={this.state.selectedTab}>
                 <TabBarIOS.Item
                     accessibilityLabel={'News'}
@@ -91,7 +93,7 @@ var HomeView = React.createClass({
 
 var styles = StyleSheet.create({
     tabBar: {
-        backgroundColor: 'rgb(52,136,245)',
+        backgroundColor: 'rgba(0,0,0,0)'
     },
     container: {
         flex: 1,
