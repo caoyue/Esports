@@ -32,6 +32,7 @@ var HeroView = React.createClass({
         return (
             <View style={styles.view}>
                 <Navbar
+                    isLeftSetting={true}
                     left='Menu'
                     title={Trans.t('hero')}
                     right='China'

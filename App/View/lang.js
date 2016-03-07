@@ -63,7 +63,7 @@ var LangView = React.createClass({
             return (
                 <View style={styles.container}>
                     <Image style={styles.img}
-                        source={{uri: 'http://www.publicdomainpictures.net/pictures/70000/nahled/corbet.jpg'}}>
+                        source={require('../../ImageAssets/launch.jpg')}>
                         <LangButton
                             code='zh-CN'
                             name='简体中文'
@@ -91,7 +91,8 @@ var LangView = React.createClass({
 
 var LangButton = React.createClass({
     render: function() {
-        var f = this.props.selected == this.props.code ? {color: 'blue'} : {};
+        var f = this.props.selected == this.props.code
+        ? {color: 'rgb(110,212,255)'} : {};
         return (
             <TouchableHighlight
                 style={[styles.touch]}

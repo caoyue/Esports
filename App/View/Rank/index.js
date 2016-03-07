@@ -32,6 +32,7 @@ var RankView = React.createClass({
                     backgroundColor: 'white'
                 }}>
                 <Navbar
+                    isLeftSetting={true}
                     left='Menu'
                     title={Trans.t('rank')}
                     right='China'

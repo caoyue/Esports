@@ -13,12 +13,15 @@
         "transferNews": "Transfer",
         "topNews": "Top",
         "transferTo": "transfer",
-        "leagueTable": "League Table",
-        "matchProcess": "Match Process",
-        "matchPrediction": "Match Prediction",
+        "leagueTable": "Table",
+        "matchProcess": "Process",
+        "matchPrediction": "Prediction",
         "rank": "Rank",
-        "teamRank": "Team Rank",
-        "playerRank": "Player Rank"
+        "teamRank": "Team ",
+        "playerRank": "Player",
+        "cn": "LPL",
+        "kr": "LCK",
+        "us": "NALCS"
     },
     "en-US": {
         "back": "Back",
@@ -34,12 +37,15 @@
         "transferNews": "Transfer",
         "topNews": "Top",
         "transferTo": "transfer",
-        "leagueTable": "League Table",
-        "matchProcess": "Match Process",
-        "matchPrediction": "Match Prediction",
+        "leagueTable": "Table",
+        "matchProcess": "Process",
+        "matchPrediction": "Prediction",
         "rank": "Rank",
-        "teamRank": "Team Rank",
-        "playerRank": "Player Rank"
+        "teamRank": "Team",
+        "playerRank": "Player",
+        "cn": "LPL",
+        "kr": "LCK",
+        "us": "NALCS"
     },
     "zh-CN": {
         "back": "返回",
@@ -60,7 +66,10 @@
         "matchPrediction": "赛事预测",
         "rank": "实力评级",
         "teamRank": "队伍排行",
-        "playerRank": "选手排行"
+        "playerRank": "选手排行",
+        "cn": "中国",
+        "kr": "韩国",
+        "us": "北美"
     },
     "zh-HK": {
         "back": "返回",
@@ -81,6 +90,9 @@
         "matchPrediction": "賽事預測",
         "rank": "實力評級",
         "teamRank": "隊伍排行",
-        "playerRank": "選手排行"
+        "playerRank": "選手排行",
+        "cn": "中國",
+        "kr": "韓國",
+        "us": "北美"
     }
 }

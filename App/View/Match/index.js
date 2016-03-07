@@ -31,6 +31,7 @@ var MatchView = React.createClass({
         return (
             <View style={{flex: 1}}>
                 <Navbar
+                    isLeftSetting={true}
                     left='Menu'
                     title={Trans.t('match')}
                     right='China'

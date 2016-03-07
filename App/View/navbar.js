@@ -8,10 +8,36 @@ var {
     Image,
     StyleSheet,
     Navigator,
-    TouchableHighlight
+    TouchableHighlight,
+    Dimensions
 } = React;
 
+var Menu= require('react-native-menu');
+var {
+    MenuContext,
+    MenuTrigger,
+    MenuOptions,
+    MenuOption
+} = Menu;
+
+var Trans = require('../I18n/translate');
+
 var Navbar = React.createClass({
+    getInitialState: function(){
+        var width = Dimensions.get('window').width;
+        return {
+            place: 'cn',
+            width: width
+        }
+    },
+    _changePlace: function(value) {
+        this.setState({
+            place: value
+        });
+    },
+    _getPlace: function(){
+        return ['cn', 'us', 'kr'];
+    },
     render: function(){
         var left;
         if (this.props.isLeftSetting) {
@@ -21,11 +47,12 @@ var Navbar = React.createClass({
         } else {
             left = <Text style={styles.leftText}>{this.props.left}</Text>;
         }
+
+        var place = this._getPlace();
         return (
-            <View>
                 <Image
-                    style={styles.header}
-                    source={{uri: 'http://gethdpic.com/wp-content/uploads/2013/12/Abstract-Circuit-Board-Mac-Wallpaper-960x250.jpg'}}>
+                    style={[styles.header, {width: this.state.width}]}
+                    source={require('../../ImageAssets/nav.png')}>
                     <TouchableHighlight
                         underlayColor='transparent'
                         style={styles.leftContainer}
@@ -37,26 +64,43 @@ var Navbar = React.createClass({
                         style={{flex: 1}}>
                         <Text style={styles.center}>{this.props.title}</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight
-                        underlayColor='transparent'
-                        style={{width: 75}}
-                        onPress={this.props.onRightPress}>
-                        <Text style={styles.right}>{this.props.right}</Text>
-                    </TouchableHighlight>
+                    <View style={{width: 75}}>
+                        <Menu onSelect={(value) => this._changePlace(value)}>
+                            <MenuTrigger>
+                                <Text style={[styles.menu, {backgroundColor: 'transparent'}]}>
+                                    {Trans.t(this.state.place)}
+                                </Text>
+                            </MenuTrigger>
+                            <MenuOptions optionsContainerStyle={styles.menuContainer}>
+                                {place.map(this._renderOption)}
+                            </MenuOptions>
+                        </Menu>
+                    </View>
                 </Image>
-            </View>
+        );
+    },
+    _renderOption: function(option){
+        return (
+            <MenuOption key={option} value={option}>
+                <Text style={[styles.menu,
+                        this.state.place === option
+                        ? {color: 'rgb(255,255,255)'} : {}]}>
+                    {Trans.t(option)}
+                </Text>
+            </MenuOption>
         );
     }
 });
 
 var styles = StyleSheet.create({
     header: {
+        height: 70,
+        paddingBottom: 15,
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'center',
-        paddingBottom: 15,
-        height: 70,
-        backgroundColor: 'rgb(52,136,245)',
+        backgroundColor: 'rgb(10,20,29)',
+        resizeMode: 'cover'
     },
     leftContainer: {
         width: 75,
@@ -80,9 +124,11 @@ var styles = StyleSheet.create({
         color: 'rgb(110,212,255)',
         textAlign: 'center'
     },
-    right: {
-        flex: 1,
+    menuContainer: {
         width: 80,
+        backgroundColor: 'rgb(10,20,29)'
+    },
+    menu: {
         fontSize: 18,
         color: 'rgb(110,212,255)',
         textAlign: 'center'

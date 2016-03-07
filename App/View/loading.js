@@ -2,38 +2,20 @@
 
 var React = require('react-native');
 var {
-    StyleSheet,
-    ScrollView,
     View,
-    ActivityIndicatorIOS
+    Image
 } = React;
 
 var LoadingView = React.createClass({
     render: function() {
         return (
-            <ScrollView
-                style={styles.scroll}
-                contentContainerStyle={styles.loading}>
-                <View>
-                    <ActivityIndicatorIOS
-                        color="#356DD0"
-                        />
-                </View>
-            </ScrollView>
+            <View style={{flex: 1}}>
+                <Image
+                    style={{resizeMode: 'cover'}}
+                    source={require('../../ImageAssets/launch.jpg')} />
+            </View>
         );
     }}
 );
-
-var styles = StyleSheet.create({
-    scroll: {
-        flex: 1,
-        backgroundColor: "#ffffff",
-    },
-    loading: {
-        flex: 1,
-        alignItems: 'center',
-        paddingTop: 30,
-    }
-});
 
 module.exports = LoadingView;
