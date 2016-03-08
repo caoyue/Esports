@@ -12,6 +12,9 @@ var {
     Dimensions
 } = React;
 
+var EsportsStore = require('../Stores/stores');
+var EsportsActions = require('../Actions/actions');
+
 var Menu= require('react-native-menu');
 var {
     MenuContext,
@@ -24,13 +27,15 @@ var Trans = require('../I18n/translate');
 
 var Navbar = React.createClass({
     getInitialState: function(){
+        var _state = EsportsStore.getAll();
         var width = Dimensions.get('window').width;
         return {
-            place: 'cn',
+            place: _state.place,
             width: width
         }
     },
     _changePlace: function(value) {
+        EsportsActions.setPlace(value);
         this.setState({
             place: value
         });
