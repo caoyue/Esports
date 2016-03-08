@@ -10,6 +10,8 @@ var {
     StyleSheet
 } = React;
 
+var PlaceStore = require('../../Stores/place');
+
 var MOCK_DATA = [
     {
         "id": 1,
@@ -40,6 +42,24 @@ var RefreshListView = require('../../View/refreshList');
 var Api = require('../../Api/api');
 
 var HotNews = React.createClass({
+    getInitialState: function(){
+        var _state = PlaceStore.getAll();
+        return {
+            place: _state.place
+        }
+    },
+    componentWillUnmount: function() {
+		PlaceStore.removeChangeListener(this._onChange);
+	},
+	componentDidMount: function() {
+		PlaceStore.addChangeListener(this._onChange);
+	},
+    _onChange: function() {
+		var _state = PlaceStore.getAll();
+		this.setState({
+			place: _state.place,
+		});
+	},
     onFetch: function(page=1, callback, options){
         this.setState({
             loaded: true
@@ -66,30 +86,30 @@ var HotNews = React.createClass({
                     onFetch={this.onFetch}
                     rowView={this.renderNews} />
             </View>
-            );
-        },
-        renderNews: function(item) {
-            return (
-                <TouchableHighlight
-                    key={item.id}
-                    onPress={() => this.onPress(item)}>
-                    <View style={[styles.box, styles.border]}>
-                        <Image
-                            style={styles.image}
-                            source={{uri: item.image}}>
-                            <View style={styles.backdrop}>
-                                <Text style={[styles.title]}>
-                                    {item.title}
-                                </Text>
-                                <Text style={[styles.tag]}>
-                                    {item.author} Featured {item.time}
-                                </Text>
-                            </View>
-                        </Image>
-                    </View>
-                </TouchableHighlight>
-            );
-        }
+        );
+    },
+    renderNews: function(item) {
+        return (
+            <TouchableHighlight
+                key={item.id}
+                onPress={() => this.onPress(item)}>
+                <View style={[styles.box, styles.border]}>
+                    <Image
+                        style={styles.image}
+                        source={{uri: item.image}}>
+                        <View style={styles.backdrop}>
+                            <Text style={[styles.title]}>
+                                [{this.state.place}]{item.title}
+                            </Text>
+                            <Text style={[styles.tag]}>
+                                {item.author} Featured {item.time}
+                            </Text>
+                        </View>
+                    </Image>
+                </View>
+            </TouchableHighlight>
+        );
+    }
 });
 
 var styles = StyleSheet.create({
