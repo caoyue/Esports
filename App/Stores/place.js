@@ -12,7 +12,7 @@ function setPlace(place) {
 	_state.place = place;
 }
 
-var EsportsStore = assign({}, EventEmitter.prototype, {
+var PlaceStore = assign({}, EventEmitter.prototype, {
 	addChangeListener: function (callback) {
 		this.on(CHANGE_EVENT, callback)
 	},
@@ -33,9 +33,9 @@ var EsportsStore = assign({}, EventEmitter.prototype, {
 function handleAction(action) {
 	if (action.type === 'SET_PLACE') {
 		setPlace(action.place);
-		EsportsStore.emitChange();
+		PlaceStore.emitChange();
 	}
 }
 
-EsportsStore.dispatchToken = AppDispatcher.register(handleAction);
-module.exports = EsportsStore;
+PlaceStore.dispatchToken = AppDispatcher.register(handleAction);
+module.exports = PlaceStore;

@@ -12,8 +12,8 @@ var {
     Dimensions
 } = React;
 
-var EsportsStore = require('../Stores/stores');
-var EsportsActions = require('../Actions/actions');
+var PlaceStore = require('../Stores/place');
+var PlaceActions = require('../Actions/place');
 
 var Menu= require('react-native-menu');
 var {
@@ -27,7 +27,7 @@ var Trans = require('../I18n/translate');
 
 var Navbar = React.createClass({
     getInitialState: function(){
-        var _state = EsportsStore.getAll();
+        var _state = PlaceStore.getAll();
         var width = Dimensions.get('window').width;
         return {
             place: _state.place,
@@ -35,7 +35,7 @@ var Navbar = React.createClass({
         }
     },
     _changePlace: function(value) {
-        EsportsActions.setPlace(value);
+        PlaceActions.setPlace(value);
         this.setState({
             place: value
         });
@@ -43,6 +43,18 @@ var Navbar = React.createClass({
     _getPlace: function(){
         return ['cn', 'us', 'kr'];
     },
+    componentWillUnmount: function() {
+		PlaceStore.removeChangeListener(this._onChange);
+	},
+	componentDidMount: function() {
+		PlaceStore.addChangeListener(this._onChange);
+	},
+    _onChange: function() {
+		var _state = PlaceStore.getAll();
+		this.setState({
+			place: _state.place,
+		});
+	},
     render: function(){
         var left;
         if (this.props.isLeftSetting) {

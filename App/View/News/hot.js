@@ -10,6 +10,8 @@ var {
     StyleSheet
 } = React;
 
+var PlaceStore = require('../../Stores/place');
+
 var MOCK_DATA = [
     {
         "id": 1,
@@ -34,9 +36,6 @@ var MOCK_DATA = [
     }
 ];
 
-var EsportsStore = require('../../Stores/stores');
-var EsportsActions = require('../../Actions/actions');
-
 var NewsDetailView = require('./newsDetail');
 var RefreshListView = require('../../View/refreshList');
 
@@ -44,19 +43,19 @@ var Api = require('../../Api/api');
 
 var HotNews = React.createClass({
     getInitialState: function(){
-        var _state = EsportsStore.getAll();
+        var _state = PlaceStore.getAll();
         return {
             place: _state.place
         }
     },
     componentWillUnmount: function() {
-		EsportsStore.removeChangeListener(this._onChange);
+		PlaceStore.removeChangeListener(this._onChange);
 	},
 	componentDidMount: function() {
-		EsportsStore.addChangeListener(this._onChange);
+		PlaceStore.addChangeListener(this._onChange);
 	},
     _onChange: function() {
-		var _state = EsportsStore.getAll();
+		var _state = PlaceStore.getAll();
 		this.setState({
 			place: _state.place,
 		});
