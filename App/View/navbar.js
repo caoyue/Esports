@@ -25,6 +25,7 @@ var Trans = require('../I18n/translate');
 var Navbar = React.createClass({
     getInitialState: function(){
         var width = Dimensions.get('window').width;
+        console.log(this.context);
         return {
             place: 'cn',
             width: width
