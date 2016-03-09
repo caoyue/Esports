@@ -64,24 +64,30 @@ var LangView = React.createClass({
                 <View style={styles.container}>
                     <Image style={styles.img}
                         source={require('../../ImageAssets/launch.jpg')}>
-                        <LangButton
-                            code='zh-CN'
-                            name='简体中文'
-                            selected={this.state.selected}
-                            onPress={() => {this.onPress('zh-CN')}}>
-                        </LangButton>
-                        <LangButton
-                            code='zh-HK'
-                            name='繁體中文'
-                            selected={this.state.selected}
-                            onPress={() => {this.onPress('zh-HK')}}>
-                        </LangButton>
-                        <LangButton
-                            code='en-US'
-                            name='English'
-                            selected={this.state.selected}
-                            onPress={() => {this.onPress('en-US')}}>
-                        </LangButton>
+                        <View style={styles.box}>
+                            <Image style={styles.light}
+                                source={require('../../ImageAssets/light.png')} />
+                            <LangButton
+                                code='zh-CN'
+                                name='简体中文'
+                                selected={this.state.selected}
+                                onPress={() => {this.onPress('zh-CN')}}>
+                            </LangButton>
+                            <LangButton
+                                code='zh-HK'
+                                name='繁體中文'
+                                selected={this.state.selected}
+                                onPress={() => {this.onPress('zh-HK')}}>
+                            </LangButton>
+                            <LangButton
+                                code='en-US'
+                                name='English'
+                                selected={this.state.selected}
+                                onPress={() => {this.onPress('en-US')}}>
+                            </LangButton>
+                            <Image style={styles.light}
+                                source={require('../../ImageAssets/light.png')} />
+                        </View>
                     </Image>
                 </View>
             );
@@ -112,7 +118,16 @@ var styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'flex-end',
-        paddingBottom: 150
+        alignItems: 'center',
+        paddingBottom: 80
+    },
+    box: {
+        width: 200,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    light: {
+        width: 200
     },
     touch: {
         justifyContent: 'center',
