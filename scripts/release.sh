@@ -29,5 +29,5 @@ cd $OUTPUTDIR
 curl --ftp-create-dirs -T "$NAME" -u $FTP_USER:$FTP_PASSWORD \
     ftp://$FTP_SERVER/esports/$NAME
 
-echo ">> {$NAME} uploaded!"
+echo ">> $NAME uploaded!"
 echo ">> all done!"
