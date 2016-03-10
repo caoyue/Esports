@@ -63,7 +63,7 @@ var LangView = React.createClass({
             return (
                 <View style={styles.container}>
                     <Image style={styles.img}
-                        source={require('../../ImageAssets/launch.jpg')}>
+                        source={require('../../ImageAssets/launch.png')}>
                         <View style={styles.box}>
                             <Image style={styles.light}
                                 source={require('../../ImageAssets/light.png')} />
@@ -113,6 +113,7 @@ var LangButton = React.createClass({
 var styles = StyleSheet.create({
     container:{
         flex: 1,
+        backgroundColor: 'rgb(10,20,29)'
     },
     img: {
         flexDirection: 'column',

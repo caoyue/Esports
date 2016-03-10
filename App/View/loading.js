@@ -9,10 +9,10 @@ var {
 var LoadingView = React.createClass({
     render: function() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, backgroundColor: 'rgb(10,20,29)'}}>
                 <Image
-                    style={{resizeMode: 'cover'}}
-                    source={require('../../ImageAssets/launch.jpg')} />
+                    style={{resizeMode: 'cover', backgroundColor: 'rgb(10,20,29)'}}
+                    source={require('../../ImageAssets/launch.png')} />
             </View>
         );
     }}
