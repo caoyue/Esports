@@ -11,45 +11,47 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-l8-ox3">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="launch" highlightedImage="launch" translatesAutoresizingMaskIntoConstraints="NO" id="5Bc-H2-atq">
+                    <rect key="frame" x="0.0" y="-667" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.029980546496534494" green="0.12694241820689026" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.023529411760000001" green="0.14117647059999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="0o9-l8-ox3" secondAttribute="bottom" id="28d-Kf-6fG"/>
-                <constraint firstItem="0o9-l8-ox3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Md0-15-dqf"/>
-                <constraint firstItem="0o9-l8-ox3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ha8-JP-8e9"/>
-                <constraint firstAttribute="trailing" secondItem="0o9-l8-ox3" secondAttribute="trailing" id="vZT-cB-kmH"/>
+                <constraint firstItem="5Bc-H2-atq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="D3f-JQ-khH"/>
+                <constraint firstItem="5Bc-H2-atq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="D4Z-9C-v0O"/>
+                <constraint firstAttribute="bottom" secondItem="5Bc-H2-atq" secondAttribute="bottom" id="Deb-Aa-2ce"/>
+                <constraint firstAttribute="trailing" secondItem="5Bc-H2-atq" secondAttribute="trailing" id="Q3J-Nv-LKP"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="0o9-l8-ox3"/>
+                    <exclude reference="5Bc-H2-atq"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="28d-Kf-6fG"/>
-                    <exclude reference="Md0-15-dqf"/>
-                    <exclude reference="ha8-JP-8e9"/>
-                    <exclude reference="vZT-cB-kmH"/>
+                    <exclude reference="D3f-JQ-khH"/>
+                    <exclude reference="D4Z-9C-v0O"/>
+                    <exclude reference="Deb-Aa-2ce"/>
+                    <exclude reference="Q3J-Nv-LKP"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=regular">
                 <mask key="subviews">
-                    <include reference="0o9-l8-ox3"/>
+                    <include reference="5Bc-H2-atq"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="28d-Kf-6fG"/>
-                    <include reference="Md0-15-dqf"/>
-                    <include reference="ha8-JP-8e9"/>
-                    <include reference="vZT-cB-kmH"/>
+                    <include reference="D3f-JQ-khH"/>
+                    <include reference="D4Z-9C-v0O"/>
+                    <include reference="Deb-Aa-2ce"/>
+                    <include reference="Q3J-Nv-LKP"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
-        <image name="launch.jpg" width="750" height="1334"/>
+        <image name="launch" width="375" height="667"/>
     </resources>
 </document>

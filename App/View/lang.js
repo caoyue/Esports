@@ -115,7 +115,6 @@ var styles = StyleSheet.create({
         flex: 1,
     },
     img: {
-        flex: 1,
         flexDirection: 'column',
         justifyContent: 'flex-end',
         alignItems: 'center',
